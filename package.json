@@ -4,6 +4,7 @@
   "description": "online resume",
   "main": "index.js",
   "scripts": {
+    "build": "next build",
     "start": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
