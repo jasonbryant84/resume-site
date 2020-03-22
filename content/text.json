@@ -1,0 +1,80 @@
+{
+	"firstname": "Jason",
+	"lastname": "Bryant",
+    "role": "Senior Web Developer, Data Engineer",
+    "hobby": "Machine Learning Enthusiast",
+    "phone": {
+    	"us": "+1 301 455 3206",
+    	"pt": "+351 919 494 354"
+    },
+    "email": "jasonbryant@stanfordalumni.org",
+    "linkedin": "jasonbryant1",
+    "about": "I'm passionate about making others' lives better and easier. Whether I'm creatively trying to remove pain points via code or a listening ear or volunteerin gas a meditation teacher my sense of satisfaction comes from helping others and always learning.",
+    "education": {
+    	"school": {
+	    	"years": "2006 - 2008",
+	    	"university": "Stanford University",
+	    	"degree": "BSEE, Signal Processing"
+    	},
+    	"online": {
+    		"coursera": [
+    			"Machine Learning by Stanford University on Coursera",
+    			"Neural Networks (NN) and Deep Learning",
+    			"Structuring Machine Learning Projects",
+    			"Improving Deep Neural Networks: Hyperparameter tuning, Regularization and Optimization",
+    			"Mentoring Training for NN"
+    		]
+    	}
+    },
+    "work": [
+    	{
+    		"startdate": "October 2018",
+    		"enddate": "present",
+    		"company": "InVision App",
+    		"comapnyLink": "https://www.invisionapp.com/",
+    		"position": "Data Engineer",
+    		"description": "Promptly took over the management and maintenance of the data team's front-end analytics implementation. Implemented custom pipeline monitoring in Python via Jenkins job."
+    	},{
+    		"startdate": "October 2015",
+    		"enddate": "October 2018",
+    		"company": "InVision App",
+    		"comapnyLink": "https://www.invisionapp.com/",
+    		"position": "Senior Web Developer",
+    		"description": "Automated a large portion of a Growth Engineer's worth of work while ensuring complete, and easy tracking customization via dashboard implementation for Analytics Team by building an in-house, mono-repo system to manage data and integrate 3rd party tools with Node, React, AWS S3, SQL, and Heroku. Eliminated the need for continual coding, testing, reviewing content for our webinars team by devising a headless CMS to increase velocity and accuracy. Overall, ensured content, uptime, and analytics for landing pages with 200,000 daily visitors by creating and collaborating across teams on several APIs and numerous landing pages including machine learning, design, and growth."
+    	},{
+    		"startdate": "October 2014",
+    		"enddate": "October 2015",
+    		"company": "Jingling Gate",
+    		"position": "iOS Developer",
+    		"description": "Debugging existing and developng new Swift projects: social media and location-based apps."
+    	},{
+    		"startdate": "Janurary 2012",
+    		"enddate": "October 2015",
+    		"company": "SanovaWorks",
+    		"companyLink": "https://sanovaworks.com/",
+    		"position": "Web Consultant",
+    		"description": "Remotely providing web design and front-end development services. Projects completed for Tylenol, Aveeno, and others. Designed iPhone/iPad app for Tylenol as well."
+    	},{
+    		"startdate": "July 2006",
+    		"enddate": "December 2008",
+    		"company": "Damian Marley",
+    		"position": "Touring & Recording Guitarist",
+    		"description": "Toured and recorded for Bob Marley's youngest son. International touring. Grammy nominated album track recording. VH1, MTV, Jimmy Kimmel, BBC."
+    	}
+    ],
+    "skills": {
+    	"programming":
+    		["Python", "SQL", "React", "Javascript", "Node/Express", "PHP", "C/C++", "R", "Swift", "Obj-C", "Matlab"],
+    	"languages":
+    		["English", "Portuguese (basic)", "Spanish (basic)"]
+    },
+    "other_experience": [
+    	{
+    		"heading": "Stanford University",
+    		"sub_heading": "Musical Effects/Circuit Modeling",
+    		"startdate": "March 2007",
+    		"enddate": "July 2008",
+    		"description": "Tested the viability of user-defined circuits to process audio signals using a nodal analysis algorithm based on M. Zwolinski's research. C++"
+    	}
+    ]
+}
