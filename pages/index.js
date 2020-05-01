@@ -1,3 +1,4 @@
+import React from 'react'
 import { PureComponent } from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
@@ -6,8 +7,6 @@ import {colors, GlobalStyle} from '../assets/css/style.js'
 import Header from '../components/Header'
 import StackCTA from '../components/StackCTA'
 import StackModal from '../components/StackModal'
-
-const body = document.getElementsByTagName("body")[0]
 
 export default class Index extends PureComponent {
   constructor(props) {
@@ -21,6 +20,8 @@ export default class Index extends PureComponent {
   }
 
   stackCTAClicked(){
+	const body = document.getElementsByTagName("body")[0]
+	
 	this.setState({
 		modalOpen: !this.state.modalOpen
 	}, ()=> {
