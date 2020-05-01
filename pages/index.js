@@ -2,14 +2,31 @@ import { PureComponent } from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
 import content from '../content/text'
+import {colors, GlobalStyle} from '../assets/css/style.js'
+import Header from '../components/Header'
+import StackCTA from '../components/StackCTA'
+import StackModal from '../components/StackModal'
+
+const body = document.getElementsByTagName("body")[0]
 
 export default class Index extends PureComponent {
   constructor(props) {
-    super(props)
-    this.state = {
-      name: content.name,
-      role: content.role,
-    }
+	super(props)
+
+	this.state = {
+		name: content.name,
+		role: content.role,
+		modalOpen: false
+	}
+  }
+
+  stackCTAClicked(){
+	this.setState({
+		modalOpen: !this.state.modalOpen
+	}, ()=> {
+		console.log("modalOpen", this.state.modalOpen)
+		this.state.modalOpen ? body.classList.add('modal-open') : body.classList.remove('modal-open')
+	})
   }
 
   printJobs() {
@@ -50,10 +67,6 @@ export default class Index extends PureComponent {
   	})
   }
 
-  componentDidMount() {
-  	//don't think this fires in the base index.js file research this
-  }
-
   render() {
     return (
     	<Container>
@@ -72,71 +85,54 @@ export default class Index extends PureComponent {
 	          <meta name="google" value="notranslate" />
 	        </Head>
 
-	        <Content>
-	    		{<Header>
-			     	<Grouping className="grouping">
-				     	<LeftColumn className="leftColumn">
-				     		<section>
-					      		<h1>{content.firstname}</h1>
-					      		<h1>{content.lastname}</h1>
-					      		<h1>{this.props.location}</h1>
-				      		</section>
-				      	</LeftColumn>
-				      	<Middle>
-				      		<section>
-					     		<h2>{content.role}</h2>
-					     		<h2>& {content.hobby}</h2>
-				      		</section>
-				     	</Middle>
-				     	<Right>
-				      		<section>
-						     	<p>{content.phone.us} (us)</p>
-						     	<p>{content.phone.pt} (pt)</p>
-						     	<p>{content.email}</p>
-						     	<p>{content.linkedin}</p>
-				      		</section>
-					    </Right>
-					 </Grouping>
-		     	</Header>}
+			<Wrapper>
+				<StackCTA cta="see stack" color={"white"} ctaClickHandler={this.stackCTAClicked.bind(this)} />
+				<StackModal show={this.state.modalOpen} closeClickHandler={this.stackCTAClicked.bind(this)}/>
+				<Header/>
 
-		     	<Grouping className="grouping">
-			     	<LeftColumn className="leftColumn">
-				     	<About>
-				     		<h2>About</h2>
-				     		<p>{content.about}</p>
-				     	</About>
-				     	<Education>
-				     		<h2>Education</h2>
-				     		<p>{content.education.school.years}</p>
-				     		<h3>{content.education.school.university}</h3>
-				     		<h4>{content.education.school.degree}</h4>
+				<Content>
+					<Grouping className="grouping">
+						<LeftColumn className="leftColumn">
+							<About>
+								<h2>About</h2>
+								<p>{content.about}</p>
+							</About>
+							<Education>
+								<h2>Education</h2>
+								<p>{content.education.school.years}</p>
+								<h3>{content.education.school.university}</h3>
+								<h4>{content.education.school.degree}</h4>
 
-				     		<h5>Coursera</h5>
-				     		<p className="description">{this.printArrayContent(content.education.online["coursera"])}</p>
-				     	</Education>
-				    </LeftColumn>
-			     	<Work>
-			     		<h2>Work Experience</h2>
-			     		{this.printJobs()}
-			     	</Work>
-			    </Grouping>
+								<h5>Coursera</h5>
+								<p className="description">{this.printArrayContent(content.education.online["coursera"])}</p>
+							</Education>
+						</LeftColumn>
+						<Work>
+							<h2>Work Experience</h2>
+							{this.printJobs()}
+						</Work>
+					</Grouping>
+				</Content>
 
-		     	<Grouping className="grouping">
-			     	<LeftColumn className="leftColumn">
-				     	<Skills>
-				     		<h2>Skills</h2>
-				     		<h3>Programming</h3>
-				     		{this.printArrayContent(content.skills.programming)}
-				     		<h3>Languages</h3>
-				     		{this.printArrayContent(content.skills.languages)}
-				     	</Skills>
-			     	</LeftColumn>
-			     	<OtherExperience>
-				     	<h2>Other Coding Experience</h2>
-			     		{this.printOtherExperiences()}
-			     	</OtherExperience>
-			    </Grouping>
-			</Content>
+				<Content>
+					<Grouping className="grouping">
+						<LeftColumn className="leftColumn">
+							<Skills>
+								<h2>Skills</h2>
+								<h3>Programming</h3>
+								{this.printArrayContent(content.skills.programming)}
+								<h3>Languages</h3>
+								{this.printArrayContent(content.skills.languages)}
+							</Skills>
+						</LeftColumn>
+						<OtherExperience>
+							<h2>Other Coding Experience</h2>
+							{this.printOtherExperiences()}
+						</OtherExperience>
+					</Grouping>
+				</Content>
+			</Wrapper>
+			<GlobalStyle/>
       	</Container>
     )
   }
@@ -145,53 +141,20 @@ const Container = styled.div`
     font-family: 'Roboto', 'Raleway', sans-serif;
     letter-spacing: initial;
 
-    padding: 20px 30px;
+    // padding: 20px 30px;
 `
-const Content = styled.div`
-	margin-left: auto;
-	margin-right: auto;
-	width: 75vw;
-	max-width: 1000px;	
-
+const Wrapper = styled.div`	
 	a {
 		color: black;
 		text-decoration: none;
 	}
 `
-const Header = styled.header`
-	display: block;
-	border-bottom: 1px black solid;
-
-	@media (min-width: 667px) {
-		display: flex;
-		flex-direction: row;
-		margin: 0vh 0 7vh 0;
-		padding-bottom: 3vh;
-	}
-
-	section {
-		h1, h2 {	
-			padding: 0;
-			margin: 0;
-		}
-		h1 {
-			font-weight: bold;
-			letter-spacing: -.075em;
-			line-height: .8;
-			font-size: 4em;
-		}
-		h2 {
-			font-weight: 300;
-			font-size: 1.2em;
-			border: 0;
-
-			&:first-child {
-				font-weight: bold;
-			}
-		}
-		p {
-			margin: 0;
-		}
+const Content = styled.section`
+	& > * {
+		margin-left: auto;
+		margin-right: auto;
+		width: 75vw;
+		max-width: 1000px;
 	}
 `
 const Middle = styled.div`

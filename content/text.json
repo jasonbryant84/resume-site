@@ -2,6 +2,7 @@
 	"firstname": "Jason",
 	"lastname": "Bryant",
     "role": "Senior Web Developer, Data Engineer",
+    "roles": ["Senior Web Developer", "Data Engineer", "Machine Learning Enthusiast"],
     "hobby": "Machine Learning Enthusiast",
     "phone": {
     	"us": "+1 301 455 3206",
@@ -67,7 +68,28 @@
     		["Python", "SQL", "React", "Javascript", "Node/Express", "PHP", "C/C++", "R", "Swift", "Obj-C", "Matlab"],
     	"languages":
     		["English", "Portuguese (basic)", "Spanish (basic)"]
-    },
+	},
+	"stack": [
+		{
+			"tool": "Amazon S3",
+			"description": "To host JSON file for all content within this site. No need to deploy new code changes for content."
+		},{
+			"tool": "ReactJS",
+			"description": ""
+		},{
+			"tool": "ExpressJS",
+			"description": ""
+		},{
+			"tool": "HerokuApp",
+			"description": "Beta, Staging, Production environments."
+		},{
+			"tool": "Github",
+			"description": "Version control integrated with Herokuapp for continuous deployment and ease of use in implemented beta, staging, and production evironments."
+		},{
+			"tool": "integration testing",
+			"description": ""
+		}
+	],
     "other_experience": [
     	{
     		"heading": "Stanford University",
