@@ -33,7 +33,7 @@ const getAWSJSON = (path, file, res) => {
   const bucket = 'jason-bryant-resume',
     envSpecificFolder = environment != 'PRODUCTION' || 'production' ? 'dev-review-staging' : 'production',
     key = `${path}/${envSpecificFolder}/${file}`
-    console.log('key:', key)
+    console.log('key:', key, process.env.AWS_ACCESS_KEY_ID)
 
   s3
     .getObject({
