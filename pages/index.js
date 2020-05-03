@@ -25,7 +25,6 @@ export default class Index extends PureComponent {
 	this.setState({
 		modalOpen: !this.state.modalOpen
 	}, ()=> {
-		console.log("modalOpen", this.state.modalOpen)
 		this.state.modalOpen ? body.classList.add('modal-open') : body.classList.remove('modal-open')
 	})
   }
@@ -72,8 +71,6 @@ export default class Index extends PureComponent {
 	  // Get Copy
 	  const hostname = window.location.hostname.includes('localhost') ? 'localhost:3000' : window.location.hostname,
 		  	filepath = `//${hostname}/copy`
-		  
-		console.log('filepath:', filepath)
 
 		fetch(filepath)
 		.then(response => response.json())

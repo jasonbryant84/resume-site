@@ -1,10 +1,3 @@
-// const express = require('express')
-// const app = express()
-// const port = 3000
-
-// app.get('/', (req, res) => res.send('Hello World!'))
-
-// app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 require('dotenv').config()
 
 const express = require('express'),
@@ -33,7 +26,6 @@ const getAWSJSON = (path, file, res) => {
   const bucket = 'jason-bryant-resume',
     envSpecificFolder = environment != 'PRODUCTION' || 'production' ? 'dev-review-staging' : 'production',
     key = `${path}/${envSpecificFolder}/${file}`
-    console.log('key:', key, process.env.AWS_ACCESS_KEY_ID)
 
   s3
     .getObject({
