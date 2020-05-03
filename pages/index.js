@@ -2,20 +2,20 @@ import React from 'react'
 import { PureComponent } from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
-import content from '../content/text'
+import content from '../content/text' // remove me
 import {colors, GlobalStyle} from '../assets/css/style.js'
 import Header from '../components/Header'
 import StackCTA from '../components/StackCTA'
 import StackModal from '../components/StackModal'
+import Loader from '../components/Loader'
 
 export default class Index extends PureComponent {
   constructor(props) {
 	super(props)
 
 	this.state = {
-		name: content.name,
-		role: content.role,
-		modalOpen: false
+		modalOpen: false,
+		content: null
 	}
   }
 
@@ -25,7 +25,6 @@ export default class Index extends PureComponent {
 	this.setState({
 		modalOpen: !this.state.modalOpen
 	}, ()=> {
-		console.log("modalOpen", this.state.modalOpen)
 		this.state.modalOpen ? body.classList.add('modal-open') : body.classList.remove('modal-open')
 	})
   }
@@ -68,11 +67,33 @@ export default class Index extends PureComponent {
   	})
   }
 
+  componentDidMount() {
+	  // Get Copy
+	  const hostname = window.location.hostname.includes('localhost') ? 'localhost:3000' : window.location.hostname,
+		  	filepath = `//${hostname}/copy`
+
+		fetch(filepath)
+		.then(response => response.json())
+		.then(parsedJSON => {
+			if (parsedJSON) {
+				this.setState({
+					content: parsedJSON
+				})
+			} else {
+			}
+		})
+		.catch(error => console.log('parsing failed', error))
+  }
+
   render() {
+	if (!this.state.content) { //(!this.state.content) {
+		return <Loader text="loading..." />
+	}
+
     return (
     	<Container>
     		<Head>
-	          <title>{content.firstname} {content.lastname} | {content.role}</title>
+	          <title>{this.state.content.firstname} {this.state.content.lastname} | {this.state.content.role}</title>
 
 	          <script type="text/javascript" async="" src="http://localhost:3000/assets/js/geolocation.js"></script>
 	          <link
@@ -88,21 +109,21 @@ export default class Index extends PureComponent {
 
 			<Wrapper>
 				<StackCTA cta="see stack" color={"white"} ctaClickHandler={this.stackCTAClicked.bind(this)} />
-				<StackModal show={this.state.modalOpen} closeClickHandler={this.stackCTAClicked.bind(this)}/>
-				<Header/>
+				<StackModal show={this.state.modalOpen} content={this.state.content} closeClickHandler={this.stackCTAClicked.bind(this)}/>
+				<Header content={this.state.content} />
 
 				<Content>
 					<Grouping className="grouping">
 						<LeftColumn className="leftColumn">
 							<About>
 								<h2>About</h2>
-								<p>{content.about}</p>
+								<p>{this.state.content.about}</p>
 							</About>
 							<Education>
 								<h2>Education</h2>
-								<p>{content.education.school.years}</p>
-								<h3>{content.education.school.university}</h3>
-								<h4>{content.education.school.degree}</h4>
+								<p>{this.state.content.education.school.years}</p>
+								<h3>{this.state.content.education.school.university}</h3>
+								<h4>{this.state.content.education.school.degree}</h4>
 
 								<h5>Coursera</h5>
 								<p className="description">{this.printArrayContent(content.education.online["coursera"])}</p>

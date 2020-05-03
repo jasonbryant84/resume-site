@@ -7,6 +7,11 @@ import {colors, mobile, Content, Grouping, LeftColumn, Middle, Right} from '../a
 // import headshot from '../assets/img/headshot.jpg'
 
 export default class Header extends PureComponent {
+    constructor(props) {
+        super(props)
+        this.state = {}
+    }
+
     printArrayContent(array) {
         return array.map((element, index) => {
             const comma = (index == array.length - 1) ? '' : 
@@ -16,7 +21,19 @@ export default class Header extends PureComponent {
     }
 
     render() {
-        // const year = new Date().getFullYear()
+        const copy = {
+            firstname: this.props.content ? this.props.content.firstname : content.firstname,
+            lastname: this.props.content ? this.props.content.lastname : content.lastname,
+            roles: this.props.content ? this.props.content.roles : content.roles,
+            role: this.props.content ? this.props.content.role : content.role,
+            hobby: this.props.content ? this.props.content.hobby : content.hobby,
+            phone: {
+                us: this.props.content ? this.props.content.phone.us : content.phone.us,
+                pt: this.props.content ? this.props.content.phone.pt : content.phone.pt
+            },
+            email: this.props.content ? this.props.content.email : content.email,
+            linkedin: this.props.content ? this.props.content.linkedin : content.linkedin
+        }
 
         return (
             <Content className="header">
@@ -24,30 +41,28 @@ export default class Header extends PureComponent {
                     <Grouping className="grouping">
                         <Image>
                             <Text>
-                                <h2 id="overlay">{content.firstname} {content.lastname}</h2>
-                                <p>{this.printArrayContent(content.roles)}</p>
+                                <h2 id="overlay">{copy.firstname} {copy.lastname}</h2>
+                                <p>{this.printArrayContent(copy.roles)}</p>
                             </Text>
                         </Image>
-                        {/*<img id="headshot" src="../assets/img/headshot.jpg"/>*/}
                         <LeftColumn className="leftColumn">
                             <section>
-                                <h1>{content.firstname}</h1>
-                                <h1>{content.lastname}</h1>
-                                <h1>{this.props.location}</h1>
+                                <h1>{copy.firstname}</h1>
+                                <h1>{copy.lastname}</h1>
                             </section>
                         </LeftColumn>
                         <Middle className="middleColumn">
                             <section>
-                                <h2>{content.role}</h2>
-                                <h2>& {content.hobby}</h2>
+                                <h2>{copy.role}</h2>
+                                <h2>& {copy.hobby}</h2>
                             </section>
                         </Middle>
                         <Right>
                             <section>
-                                <p>{content.phone.us} (us)</p>
-                                <p>{content.phone.pt} (pt)</p>
-                                <p>{content.email}</p>
-                                <p>{content.linkedin}</p>
+                                <p>{copy.phone.us} (us)</p>
+                                <p>{copy.phone.pt} (pt)</p>
+                                <p>{copy.email}</p>
+                                <p>{copy.linkedin}</p>
                             </section>
                         </Right>
                     </Grouping>
@@ -59,10 +74,12 @@ export default class Header extends PureComponent {
 
 Header.propTypes = {
   className: PropTypes.string,
+  content: PropTypes.object
 }
 
 Header.defaultProps = {
   className: 'footer',
+  content: {}
 }
 
 const CustomHeader = styled.header`
