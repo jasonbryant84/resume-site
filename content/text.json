@@ -83,8 +83,8 @@
 			"tool": "HerokuApp",
 			"description": "Beta, Staging, Production environments."
 		},{
-			"tool": "Github",
-			"description": "Version control integrated with Herokuapp for continuous deployment and ease of use in implemented beta, staging, and production evironments."
+			"tool": "Github w/ Codeship",
+			"description": "Version control integrated with Herokuapp for continuous deployment and ease of use in implemented beta, staging, and production evironments. Leveraging Codeship for Continuous Integration."
 		},{
 			"tool": "integration testing",
 			"description": ""
