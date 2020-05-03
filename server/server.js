@@ -17,7 +17,7 @@ const express = require('express'),
   handle = app.getRequestHandler(),
   port = process.env.PORT || 3000,
   bodyParser = require('body-parser'),
-  environemnt = process.env.NODE_ENV
+  environment = process.env.ENVIRONMENT
 
 AWS.config.update({
   region: 'us-east-1',
@@ -31,12 +31,14 @@ const s3 = new AWS.S3({
 // GET FILE
 const getAWSJSON = (path, file, res) => {
   const bucket = 'jason-bryant-resume',
-    envSpecificFolder = environemnt != 'PRODUCTION' ? 'dev-review-staging' : 'production'
+    envSpecificFolder = environment != 'PRODUCTION' || 'production' ? 'dev-review-staging' : 'production',
+    key = `${path}/${envSpecificFolder}/${file}`
+    console.log('key:', key)
 
   s3
     .getObject({
       Bucket: bucket,
-      Key: `${path}/${envSpecificFolder}/${file}`,
+      Key: key
     })
     .on('success', response => {
       res.send(response.data.Body.toString('utf-8'))
