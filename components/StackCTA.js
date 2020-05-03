@@ -45,6 +45,7 @@ const CTA = styled.div`
     top: 8vh;
     right: 0vw;
     transform: rotate(90deg);
+    z-index: 1;
 
     span {  
         display: inline-block;  

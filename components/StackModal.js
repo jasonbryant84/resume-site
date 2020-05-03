@@ -57,9 +57,11 @@ export default class StackModal extends PureComponent {
         
         return (
             <Modal className={`modal ${open ? 'open' : ''}`}>
-                <StackCTA cta="close" ctaClickHandler={this.clickHandler.bind(this)} />
-                <h3>Site Tech Stack</h3>
-                <ul>{this.printStacks(this.props.content)}</ul>
+                <ModalPadder>
+                    <StackCTA cta="close" ctaClickHandler={this.clickHandler.bind(this)} />
+                    <h3>Site Tech Stack</h3>
+                    <ul>{this.printStacks(this.props.content)}</ul>
+                </ModalPadder>
             </Modal>
         )
     }
@@ -84,10 +86,11 @@ const Modal = styled.div`
     top: 0;
     right: 0;
     background: white;
-    width: 46vw;
+    width: 100vw;
     height: 100vh;
-    padding: 3vw 3vw 3vw 54vw;
+    // padding: 3vw;
     transition: all .3s;
+    z-index: 2;
 
     transform: translateX(104vw);
 
@@ -114,4 +117,7 @@ const Modal = styled.div`
             transform: translate(30vw, 0px);
         }
     }
+`
+const ModalPadder = styled.div`
+    padding: 3vw;
 `
