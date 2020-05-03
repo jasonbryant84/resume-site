@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "next build",
-    "start": ". .env && node server/server.js",
+    "start": "node server/server.js",
+    "dev": ". .env && node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jason Bryant",
