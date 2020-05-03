@@ -70,9 +70,12 @@ export default class Index extends PureComponent {
 
   componentDidMount() {
 	  // Get Copy
-	  const hostname = window.location.hostname.includes('localhost') ? 'localhost:3000' : window.location.hostname
+	  const hostname = window.location.hostname.includes('localhost') ? 'localhost:3000' : window.location.hostname,
+		  	filepath = `//${hostname}/copy`
+		  
+		console.log('filepath:', filepath)
 
-	  fetch(`//${hostname}/copy`)
+		fetch(filepath)
 		.then(response => response.json())
 		.then(parsedJSON => {
 			if (parsedJSON) {
