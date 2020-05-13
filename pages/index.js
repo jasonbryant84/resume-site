@@ -5,6 +5,7 @@ import Head from 'next/head'
 import content from '../content/text' // remove me
 import {colors, GlobalStyle} from '../assets/css/style.js'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import StackCTA from '../components/StackCTA'
 import StackModal from '../components/StackModal'
 import Loader from '../components/Loader'
@@ -153,6 +154,7 @@ export default class Index extends PureComponent {
 						</OtherExperience>
 					</Grouping>
 				</Content>
+				<Footer role={this.state.content.role} />
 			</Wrapper>
 			<GlobalStyle/>
       	</Container>
