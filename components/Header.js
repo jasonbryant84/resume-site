@@ -141,6 +141,10 @@ const CustomHeader = styled.header`
 		}
     }
     
+    .grouping {
+        width: 100%;
+    }
+
     img#headshot {
         height: 90vh;
     }
