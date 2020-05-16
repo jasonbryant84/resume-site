@@ -76,13 +76,6 @@ const CenteredDiv = styled.div`
     }
 `
 
-
-/*peach: '#F8B195',
-		pink: '#F67280',
-		fuschia: '#C06C84',
-		grape: '#6C5B7B',
-        blue: '#355C7D'*/
-        
 const Bars = styled.div`
     display: flex;
     justify-content: center;

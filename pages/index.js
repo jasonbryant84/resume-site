@@ -3,9 +3,16 @@ import { PureComponent } from 'react'
 import styled from 'styled-components'
 import Head from 'next/head'
 import content from '../content/text' // remove me
-import {colors, GlobalStyle} from '../assets/css/style.js'
+import {breakpoints, colors, GlobalStyle} from '../assets/css/style.js'
+
 import Header from '../components/Header'
+import About from '../components/About'
+import Work from '../components/Work'
+import Education from '../components/Education'
+import Skills from '../components/Skills'
+import Experience from '../components/Experience'
 import Footer from '../components/Footer'
+
 import StackCTA from '../components/StackCTA'
 import StackModal from '../components/StackModal'
 import Loader from '../components/Loader'
@@ -30,24 +37,6 @@ export default class Index extends PureComponent {
 	})
   }
 
-  printJobs() {
-  	return content.work.map((job, index) => {
-  		const hasLink = job.comapnyLink != undefined
-  		return( 
-  			<article key={index}>
-     			<p>{job.startdate} to {job.enddate}</p>
-     			{
-     				hasLink ?
-     				<h4><a href={job.comapnyLink} rel="nofollow" target="_blank">{job.company}</a></h4> :
-     				<h4>{job.company}</h4>
-     			}
-     			<h3>{job.position}</h3>
-     			<p className="description">{job.description}</p>
-     		</article>
-	     )
-  	})
-  }
-
   printArrayContent(array) {
   	return array.map((element, index) => {
   		const comma = (index != array.length - 1) ? ', ' : ''
@@ -55,21 +44,7 @@ export default class Index extends PureComponent {
   	})
   }
 
-  printOtherExperiences() {
-  	return content.other_experience.map((exp, index) => {
-  		return( 
-  			<article key={index}>
-     			<h3>{exp.heading}</h3>
-	     		<p>{exp.sub_heading}</p>
-	     		<p>{exp.startdate} to {content.other_experience[0].enddate}</p>
-	     		<p>{exp.description}</p>
-     		</article>
-	     )
-  	})
-  }
-
   componentDidMount() {
-	  // Get Copy
 	  const hostname = window.location.hostname.includes('localhost') ? 'localhost:3000' : window.location.hostname,
 		  	filepath = `//${hostname}/copy`
 
@@ -81,13 +56,14 @@ export default class Index extends PureComponent {
 					content: parsedJSON
 				})
 			} else {
+				
 			}
 		})
 		.catch(error => console.log('parsing failed', error))
   }
 
   render() {
-	if (!this.state.content) { //(!this.state.content) {
+	if (!this.state.content) {
 		return <Loader text="loading..." />
 	}
 
@@ -95,16 +71,10 @@ export default class Index extends PureComponent {
     	<Container>
     		<Head>
 	          <title>{this.state.content.firstname} {this.state.content.lastname} | {this.state.content.role}</title>
-
 	          <script type="text/javascript" async="" src="http://localhost:3000/assets/js/geolocation.js"></script>
-	          <link
-	            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Lora:400,700|Raleway:300,400,500|Mrs+Saint+Delafield|Oswald:400,500,600,700|Montserrat:400,500,600,700,800,900"
-	            rel="stylesheet"
+	          <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Lora:400,700|Raleway:300,400,500|Mrs+Saint+Delafield|Oswald:400,500,600,700|Montserrat:400,500,600,700,800,900" rel="stylesheet"
 	          />
-	          <meta
-	            name="viewport"
-	            content="initial-scale=1.0, width=device-width"
-	          />
+	          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 	          <meta name="google" value="notranslate" />
 	        </Head>
 
@@ -116,46 +86,27 @@ export default class Index extends PureComponent {
 				<Content>
 					<Grouping className="grouping">
 						<LeftColumn className="leftColumn">
-							<About>
-								<h2>About</h2>
-								<p>{this.state.content.about}</p>
-							</About>
-							<Education>
-								<h2>Education</h2>
-								<p>{this.state.content.education.school.years}</p>
-								<h3>{this.state.content.education.school.university}</h3>
-								<h4>{this.state.content.education.school.degree}</h4>
-
-								<h5>Coursera</h5>
-								<p className="description">{this.printArrayContent(content.education.online["coursera"])}</p>
-							</Education>
+							<About content={this.state.content} />
+							<Education content={this.state.content} printArrayContent={this.printArrayContent.bind(this)} />
 						</LeftColumn>
-						<Work>
-							<h2>Work Experience</h2>
-							{this.printJobs()}
-						</Work>
+
+						<Work content={this.state.content}/>
 					</Grouping>
 				</Content>
 
 				<Content>
 					<Grouping className="grouping">
 						<LeftColumn className="leftColumn">
-							<Skills>
-								<h2>Skills</h2>
-								<h3>Programming</h3>
-								{this.printArrayContent(content.skills.programming)}
-								<h3>Languages</h3>
-								{this.printArrayContent(content.skills.languages)}
-							</Skills>
+							<Skills content={this.state.content} printArrayContent={this.printArrayContent.bind(this)} />
 						</LeftColumn>
-						<OtherExperience>
-							<h2>Other Coding Experience</h2>
-							{this.printOtherExperiences()}
-						</OtherExperience>
+
+						<Experience  content={this.state.content} />
 					</Grouping>
 				</Content>
+				
 				<Footer role={this.state.content.role} />
 			</Wrapper>
+
 			<GlobalStyle/>
       	</Container>
     )
@@ -172,6 +123,20 @@ const Wrapper = styled.div`
 		color: black;
 		text-decoration: none;
 	}
+
+	h2 {
+		a { 
+			font-size: .65em;
+			font-weight: bold;
+
+			color: ${colors.fuschia};
+	
+			&:hover {
+				cursor: pointer;
+				color: ${colors.grape};
+			}
+		}
+	}
 `
 const Content = styled.section`
 	& > * {
@@ -180,18 +145,6 @@ const Content = styled.section`
 		width: 75vw;
 		max-width: 1000px;
 	}
-`
-const Middle = styled.div`
-	flex-grow: 1;
-	align-self: flex-end;
-
-	@media (min-width: 667px) {
-		padding-right: 4vw;
-	}
-`
-const Right = styled.div`
-	flex-grow: 1;
-	align-self: flex-end;
 `
 
 const Grouping = styled.section`
@@ -225,78 +178,4 @@ const LeftColumn = styled.section`
 			width: 200px;
 		}
     }
-`
-const About = styled.section`
-`
-const Education = styled.section`
-	h3, h4 {
-		padding: 0;
-		margin: 0;
-	}
-	h3 {
-		font-weight: 500;
-	}
-	h4 {
-		font-weight: initial;
-		font-style: italic;
-	}
-	h5 {
-		font-size: 1.17em;
-	}
-	p {
-		&:not(.description) {
-			font-style: italic;
-			margin: 0;
-		}
-		&.description {
-			margin-bottom: 8vh;
-		}
-	}
-`
-const Work = styled.section`
-	flex-grow: 1;
-
-	@media only screen and (min-width: 600px) {
-		flex-grow: 3;
-	}
-
-	h3 {
-		font-size: 1.7em;
-		font-weight: 500;
-		margin: 1vh 0;
-	}
-	h4 {
-		margin: 0;
-	}
-	p {
-		margin-top: 0;
-
-		&:not(.description) {
-			font-style: italic;
-			margin: 0;
-		}
-		&.description {
-			margin-bottom: 8vh;
-		}
-	}
-
-	&:last {
-		p.description {
-			margin-bottom: 0;
-		}
-	}
-`
-const Skills = styled.section`
-	flex-grow: 1;
-
-	section {
-    	margin-bottom: 10vh;
-    }
-`
-const OtherExperience = styled.section`
-	flex-grow: 1;
-
-	@media only screen and (min-width: 600px) {
-		flex-grow: 3;
-	}
 `

@@ -119,5 +119,6 @@ const Modal = styled.div`
     }
 `
 const ModalPadder = styled.div`
-    padding: 3vw;
+    padding: 4vh 5vw;
+    
 `

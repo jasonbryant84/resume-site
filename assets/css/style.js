@@ -20,6 +20,13 @@ export const
 		grape: '#6C5B7B',
 		blue: '#355C7D'
 	},
+	breakpoints = {
+		iPhone5: 320,
+		mobile: 375,
+		tabletPortrait: 600,
+		tabletLandscape: 900,
+		desktop: 1200
+	},
 	mobile = {
 		'minWidth': '667px'
 	},
@@ -53,7 +60,6 @@ export const
 		}
 	`,
 	LeftColumn = styled.section`
-		flex-grow: 1;
 
 		@media (min-width: 667px) {
 			padding-right: 4vw;
@@ -69,7 +75,6 @@ export const
 		}
 	`,
 	Middle = styled.div`
-		flex-grow: 1;
 		align-self: flex-end;
 
 		@media (min-width: 667px) {
@@ -77,7 +82,6 @@ export const
 		}
 	`,
 	Right = styled.div`
-		flex-grow: 1;
 		align-self: flex-end;
 	`
 
