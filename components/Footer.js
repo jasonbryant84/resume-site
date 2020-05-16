@@ -44,7 +44,7 @@ Footer.defaultProps = {
 
 const CustomFooter = styled.footer`
 	display: block;
-    margin: 10vh auto 3vh;
+    margin: 30vh auto 3vh;
     border-top: 1px solid black;
 
     transition: all .2s;

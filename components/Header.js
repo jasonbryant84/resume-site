@@ -3,7 +3,7 @@ import Link from 'next/link'
 import content from '../content/text'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {colors, mobile, Content, Grouping, LeftColumn, Middle, Right} from '../assets/css/style.js'
+import {colors, breakpoints, mobile, Content, Grouping, LeftColumn, Middle, Right} from '../assets/css/style.js'
 import LinkedInSVG from '../assets/svgs/LinkedIn.js'
 import GithubSVG from '../assets/svgs/Github.js'
 
@@ -56,20 +56,22 @@ export default class Header extends PureComponent {
                                 <h1>{copy.lastname}</h1>
                             </section>
                         </LeftColumn>
-                        <Middle className="middleColumn">
-                            <section>
-                                <h2>{copy.role}</h2>
-                                <h2>& {copy.hobby}</h2>
-                            </section>
-                        </Middle>
-                        <Right className="rightColumn">
-                            <section>
-                                <p>{copy.phone.us} (us)</p>
-                                <p>{copy.phone.pt} (pt)</p>
-                                <p>{copy.email}</p>
-                                <p>{copy.linkedin}</p>
-                            </section>
-                        </Right>
+                        <Info>
+                            <Middle className="middleColumn">
+                                <section>
+                                    <h2>{copy.role}</h2>
+                                    <h2>& {copy.hobby}</h2>
+                                </section>
+                            </Middle>
+                            <Right className="rightColumn">
+                                <section>
+                                    <p>{copy.phone.us} (us)</p>
+                                    <p>{copy.phone.pt} (pt)</p>
+                                    <p>{copy.email}</p>
+                                    <p>{copy.linkedin}</p>
+                                </section>
+                            </Right>
+                        </Info>
                     </Grouping>
                 </CustomHeader>
             </Content>
@@ -98,7 +100,7 @@ const CustomHeader = styled.header`
         display: none;
     }
 
-	@media (min-width: ${mobile.minWidth}) {
+	@media (min-width: ${breakpoints.tabletLandscape}px) {
         padding: 3vh 0 3vh;
 		display: flex;
         flex-direction: row;
@@ -155,10 +157,11 @@ const Image = styled.div`
     top: 0;
     left: 0;
     width: 100vw;
+    min-width: 350px;
     height: 90vh;
     transition: all .3s;
 
-	@media (min-width: ${mobile.minWidth}) {
+	@media (min-width: ${breakpoints.tabletLandscape}px) {
         position: relative;
         max-width: 580px;
         height: 90vh;
@@ -194,11 +197,47 @@ const Icons = styled.div`
 
         &:hover {
             cursor: pointer;
-            fill: ${colors.grape};
+            fill: white;
+            opacity: .9;
         }
 
-	    @media (min-width: ${mobile.minWidth}) {
+	    @media (min-width: ${breakpoints.tabletPortrait}px) {
             margin: 0 .5vw;
+        }
+    }
+`
+
+const Info = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+
+    @media (min-width: ${breakpoints.desktop}px) {
+        flex-direction: row;
+    }
+
+    .middleColumn {
+        padding: 0 0 3vh 3vw;
+        margin-bottom: 3vh;
+        border-bottom: 1px solid white;
+        
+        @media (min-width: ${breakpoints.desktop}px) {
+            padding: 0 0 0 3vw;
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+    }
+
+    .rightColumn {
+        width: 100%;
+        padding-bottom: 5vh;
+        
+        @media (min-width: ${breakpoints.desktop}px) {
+            padding-bottom: 0;
+        }
+
+        section {
+            padding-left: 3vw;
         }
     }
 `

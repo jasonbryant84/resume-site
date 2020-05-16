@@ -1,7 +1,7 @@
 import { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import {colors, Content, Grouping, LeftColumn, Middle, Right} from '../assets/css/style.js'
+import {colors, breakpoints} from '../assets/css/style.js'
 
 export default class StackCTA extends PureComponent {
     constructor(props) {
@@ -43,9 +43,19 @@ const CTA = styled.div`
     height: 25px;
     width: 90px;
     top: 8vh;
-    right: 0vw;
+    right: -3vw;
     transform: rotate(90deg);
     z-index: 1;
+
+
+	@media (min-width: ${breakpoints.tabletPortrait}px) and (max-width: ${breakpoints.tabletLandscape - 1}px) {
+        right: -1vw;
+    }
+
+    @media (min-width: ${breakpoints.tabletLandscape}px) {
+        top: 7vh;
+        right: 0;
+    }
 
     span {  
         display: inline-block;  
