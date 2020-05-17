@@ -2,6 +2,7 @@ import { PureComponent } from 'react'
 import content from '../content/text'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Link from 'next/link'
 import {colors, breakpoints, mobile, Content, Grouping, LeftColumn, Middle, Right} from '../assets/css/style.js'
 
 export default class About extends PureComponent {
@@ -13,7 +14,7 @@ export default class About extends PureComponent {
     render() {
         return (
             <AboutSection>
-                <h2>About <a href='/about'>more</a></h2>
+                <h2>About <Link href='/about'><a>more</a></Link></h2>
                 <p>{this.props.content.about}</p>
                 <MobileInfo>
                     <p>{this.props.content.phone.us} (us)<br/>

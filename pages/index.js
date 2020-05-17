@@ -45,21 +45,18 @@ export default class Index extends PureComponent {
   }
 
   componentDidMount() {
-	  const hostname = window.location.hostname.includes('localhost') ? 'localhost:3000' : window.location.hostname,
-		  	filepath = `//${hostname}/copy`
-
-		fetch(filepath)
-		.then(response => response.json())
-		.then(parsedJSON => {
-			if (parsedJSON) {
-				this.setState({
-					content: parsedJSON
-				})
-			} else {
-				
-			}
-		})
-		.catch(error => console.log('parsing failed', error))
+		fetch('/copy')
+			.then(response => response.json())
+			.then(parsedJSON => {
+				if (parsedJSON) {
+					this.setState({
+						content: parsedJSON
+					})
+				} else {
+					
+				}
+			})
+			.catch(error => console.log('parsing failed', error))
   }
 
   render() {
@@ -71,11 +68,6 @@ export default class Index extends PureComponent {
     	<Container>
     		<Head>
 	          <title>{this.state.content.firstname} {this.state.content.lastname} | {this.state.content.role}</title>
-	          <script type="text/javascript" async="" src="http://localhost:3000/assets/js/geolocation.js"></script>
-	          <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Lora:400,700|Raleway:300,400,500|Mrs+Saint+Delafield|Oswald:400,500,600,700|Montserrat:400,500,600,700,800,900" rel="stylesheet"
-	          />
-	          <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-	          <meta name="google" value="notranslate" />
 	        </Head>
 
 			<Wrapper>

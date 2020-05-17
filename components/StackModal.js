@@ -3,7 +3,7 @@ import StackCTA from '../components/StackCTA'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import gsap from "gsap"
-import {colors, LeftColumn, Middle, Right} from '../assets/css/style.js'
+import {colors, breakpoints, LeftColumn, Middle, Right} from '../assets/css/style.js'
 
 export default class StackModal extends PureComponent {
     constructor(props) {
@@ -34,18 +34,18 @@ export default class StackModal extends PureComponent {
         });
     }
 
-    componentDidMount() { }
+    componentDidMount() {}
 
-    printStacks(content) {
-        if (!content) return
+    printStacks(stack) {
+        if (!stack) return
 
-        return content.stack.map((tool, index) => {
+        return stack.map((tool, index) => {
             return( 
                 <li key={index} class="li">
                     <h5>{tool["tool"]}</h5>
                     <p>{tool["description"]}</p>
                 </li>
-           )
+            )
         })
     }
 
@@ -60,7 +60,10 @@ export default class StackModal extends PureComponent {
                 <ModalPadder>
                     <StackCTA cta="close" ctaClickHandler={this.clickHandler.bind(this)} />
                     <h3>Site Tech Stack</h3>
-                    <ul>{this.printStacks(this.props.content)}</ul>
+                    <List>
+                        <ul>{this.printStacks(this.props.content.stack[0])}</ul>
+                        <ul>{this.printStacks(this.props.content.stack[1])}</ul>
+                    </List>
                 </ModalPadder>
             </Modal>
         )
@@ -91,11 +94,16 @@ const Modal = styled.div`
     // padding: 3vw;
     transition: all .3s;
     z-index: 2;
+    overflow-y: scroll;
 
     transform: translateX(104vw);
 
     &.open {
         transform: translateX(0vw);
+    }
+
+    div {
+        overflow-y: scroll;
     }
 
     span {
@@ -108,6 +116,15 @@ const Modal = styled.div`
         line-height: 1;
     }
 
+    h5 {
+        border-bottom: 1px black solid;
+        text-transform: lowercase;
+        padding-bottom: 10px;
+        font-weight: 400;
+        font-size: 1.5em;
+        margin: 0;
+    }
+
     ul{
         list-style: none;
         padding-left: 0;
@@ -115,10 +132,39 @@ const Modal = styled.div`
         li {
             opacity: 0;
             transform: translate(30vw, 0px);
+            margin-bottom: 7vh;
         }
     }
 `
+
 const ModalPadder = styled.div`
-    padding: 4vh 5vw;
+    padding: 4vh 0;
+
+    width: 75vw;
+    max-width: 1000px;
+    margin: 0 auto;
     
+`
+
+const List = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: ${breakpoints.tabletLandscape}px) {
+        flex-direction: row;
+    }
+
+    ul {
+        margin: 0;
+        flex-grow: 1;
+        flex-basis: 0;
+
+        &:last-child {
+            padding-left: 0;
+
+            @media (min-width: ${breakpoints.tabletLandscape}px) {
+                padding-left: 3vw;
+            }
+        }
+    }
 `

@@ -58,6 +58,7 @@ app
 
     // Serve All other Pages
     server.get('*', (req, res) => {
+      res.environment = environment
       return handle(req, res)
     })
 
