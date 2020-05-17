@@ -14,7 +14,6 @@ export default class StackCTA extends PureComponent {
     }
 
     render() {
-        console.log(this.props.color)
         return (
             <CTA onClick={this.clickHandler.bind(this)}>
                 <span>{this.props.cta}</span>
@@ -32,9 +31,7 @@ StackCTA.propTypes = {
 StackCTA.defaultProps = {
     cta: 'cta here',
     color: colors.grape,
-    ctaClickHandler: () => {
-        console.log('CTA onClick default')
-    }
+    ctaClickHandler: () => {}
 }
 
 const CTA = styled.div`

@@ -40,16 +40,18 @@ export default class Header extends PureComponent {
             <Content className="header">
                 <CustomHeader>
                     <Grouping className="grouping">
-                        <Image>
-                            <Text>
-                                <h2 id="overlay">{copy.firstname} {copy.lastname}</h2>
-                                <p>{this.printArrayContent(copy.roles)}</p>
-                                <Icons>
-                                    <a href="https://www.linkedin.com/in/jasonbryant1/" target="_blank" rel="nofollow"><LinkedInSVG/></a>
-                                    <a href="https://github.com/jasonbryant84/resume-site#resume-site" target="_blank" rel="nofollow"><GithubSVG/></a>
-                                </Icons>
-                            </Text>
-                        </Image>
+                        <Link href="/about">
+                            <Image>
+                                    <Text>
+                                        <h2 id="overlay">{copy.firstname} {copy.lastname}</h2>
+                                        <p>{this.printArrayContent(copy.roles)}</p>
+                                        <Icons>
+                                            <a href="https://www.linkedin.com/in/jasonbryant1/" target="_blank" rel="nofollow"><LinkedInSVG/></a>
+                                            <a href="https://github.com/jasonbryant84/resume-site#resume-site" target="_blank" rel="nofollow"><GithubSVG/></a>
+                                        </Icons>
+                                    </Text>
+                            </Image>
+                        </Link>
                         <LeftColumn className="leftColumn">
                             <section>
                                 <h1>{copy.firstname}</h1>
@@ -160,12 +162,18 @@ const Image = styled.div`
     min-width: 350px;
     height: 90vh;
     transition: all .3s;
+    pointer-events: none;
+
+    &:hover {
+        cursor: pointer;
+    }
 
 	@media (min-width: ${breakpoints.tabletLandscape}px) {
         position: relative;
         max-width: 580px;
         height: 90vh;
         width: 45vw;
+        pointer-events: auto;
         
         &:hover {
             box-shadow: 5px 10px 5px rgba(0,0,0,.2);

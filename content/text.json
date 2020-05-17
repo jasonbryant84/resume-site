@@ -70,25 +70,29 @@
     		["English", "Portuguese (basic)", "Spanish (basic)"]
 	},
 	"stack": [
-		{
-			"tool": "Amazon S3",
-			"description": "To host JSON file for all content within this site. No need to deploy new code changes for content."
-		},{
-			"tool": "ReactJS",
-			"description": ""
-		},{
-			"tool": "ExpressJS",
-			"description": ""
-		},{
-			"tool": "HerokuApp",
-			"description": "Beta, Staging, Production environments."
-		},{
-			"tool": "Github w/ Codeship",
-			"description": "Version control integrated with Herokuapp for continuous deployment and ease of use in implemented beta, staging, and production evironments. Leveraging Codeship for Continuous Integration."
-		},{
-			"tool": "integration testing",
-			"description": ""
-		}
+		[
+			{
+				"tool": "Amazon S3",
+				"description": "To host JSON file for all content within this site. No need to deploy new code changes for content."
+			},{
+				"tool": "ReactJS",
+				"description": ""
+			},{
+				"tool": "ExpressJS",
+				"description": ""
+			}
+		],[
+			{
+				"tool": "HerokuApp",
+				"description": "Beta, Staging, Production environments."
+			},{
+				"tool": "Github w/ Codeship",
+				"description": "Version control integrated with Herokuapp for continuous deployment and ease of use in implemented beta, staging, and production evironments. Leveraging Codeship for Continuous Integration."
+			},{
+				"tool": "integration testing",
+				"description": ""
+			}
+		]
 	],
     "other_experience": [
     	{
@@ -98,5 +102,15 @@
     		"enddate": "July 2008",
     		"description": "Tested the viability of user-defined circuits to process audio signals using a nodal analysis algorithm based on M. Zwolinski's research. C++"
     	}
-    ]
+	],
+	"cv": [
+		"At Stanford University I found my way to the Center for <a href='https://ccrma.stanford.edu/' target='_blank' rel='nofollow'>Computer Research in Music and Acoustics (CCRMA)</a> through my love of music and budding interest in signal processing within the Electrical Engineering department.",
+		"My 4th year of undergratudate study ws temporarily put on hold to to tour the world as the lead guitarist for Damian Marly, son of Bob Marley. I learned a self-discipline I'd not known as I successfully completed my BSEE in Signal Processing while playing shows like Glastonbury to MTV Spring Break to <a href='https://www.youtube.com/watch?v=pmdMTMzOqpA' target='_blank' rel='nofollow'>Austin City Limits</a> and <a href='https://www.youtube.com/watch?v=y_eQJWu3tRY' target='_blank' rel='nofollow'>many others</a>.",
+		"With the end of my 3-year, grueling touring carrier and simultaenous completion of my degree I found respite in the practice of Buddhist meditation. Something I value and practice to this very day and even take part in as a volunteer meditation teacher for months at a time on a yearly basis.",
+		"I made my way back to programming before long and taught myself web development, web design, and iOS development and spent a few years working as a freelancing web consultant and iOS developer. In the fall of 2015 I joined InVision as a Senior Web Developer where my skills quickly grew from working with a talented group of front and backend developers.",
+		"With the rise of Machine Learning, my love of learning, and wish to get back to my signal processing routes I enrolled in a few online courses taught by Andrew Ng through first Stanford University and later from his deeplearning.ai initiative. I've subsequently been asked to help mentor one of his Neural Network courses but time hasn't afforded the opportunity unfrotunately.",
+		"I am however now employed as Data Engineer with InVision as I made the jump in order to learn more about the infrastructure required for sound Machine Learning.",
+		"I now find myself living off-grid in the south of Portugal with years of varied experience spanning not a few fields. I can build and run my own plumbing, play songs by Joāo Gilberto, monitor a data pipeline in Python, code responsive web apps with the latest tech stack tools, and happily go on month-long silent meditation retreats.",
+		"As long as I'm learning and growing I'm happy."
+	]
 }
