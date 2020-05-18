@@ -1,15 +1,14 @@
 require('dotenv').config()
+let tempServer 
 
 const express = require('express'),
   next = require('next'),
-  http = require('http'),
   https = require('https'),
   AWS = require('aws-sdk'),
-  dev = process.env.NODE_ENV !== 'production',
+  dev = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test',
   app = next({ dev }),
   handle = app.getRequestHandler(),
   port = process.env.PORT || 3000,
-  bodyParser = require('body-parser'),
   environment = process.env.ENVIRONMENT
 
 AWS.config.update({
@@ -44,7 +43,9 @@ const getAWSJSON = (path, file, res) => {
 app
   .prepare()
   .then(() => {
-    const server = express()
+    server = express()
+    tempServer = server
+
     server.use('/assets', express.static('assets'))
 
     server.get('/locate', (req, res) => {
@@ -75,3 +76,5 @@ app
     console.error(ex.stack)
     process.exit(1)
   })
+
+module.exports = { app }
