@@ -40,18 +40,16 @@ export default class Header extends PureComponent {
             <Content className="header">
                 <CustomHeader>
                     <Grouping className="grouping">
-                        <Link href="/about">
-                            <Image>
-                                    <Text>
-                                        <h2 id="overlay">{copy.firstname} {copy.lastname}</h2>
-                                        <p>{this.printArrayContent(copy.roles)}</p>
-                                        <Icons>
-                                            <a href="https://www.linkedin.com/in/jasonbryant1/" target="_blank" rel="nofollow"><LinkedInSVG/></a>
-                                            <a href="https://github.com/jasonbryant84/resume-site#resume-site" target="_blank" rel="nofollow"><GithubSVG/></a>
-                                        </Icons>
-                                    </Text>
-                            </Image>
-                        </Link>
+                        <Image>
+                                <Text>
+                                    <h2 id="overlay">{copy.firstname} {copy.lastname}</h2>
+                                    <p>{this.printArrayContent(copy.roles)}</p>
+                                    <Icons>
+                                        <Link href="//www.linkedin.com/in/jasonbryant1/"><a target="_blank" rel="nofollow"><LinkedInSVG/></a></Link>
+                                        <Link href="//github.com/jasonbryant84/resume-site#resume-site"><a target="_blank" rel="nofollow"><GithubSVG/></a></Link>
+                                    </Icons>
+                                </Text>
+                        </Image>
                         <LeftColumn className="leftColumn">
                             <section>
                                 <h1>{copy.firstname}</h1>
@@ -190,6 +188,10 @@ const Image = styled.div`
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+
+    a {
+        pointer-events: auto;
+    }
 `
 
 const Icons = styled.div`
