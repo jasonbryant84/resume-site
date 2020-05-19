@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "node server/server.js",
     "dev": ". .env && node server/server.js",
-    "unit-test": "mocha --exit test/unit/*.js",
+    "unit-test": "mocha test/unit/*.js",
     "api-test": "mocha --exit test/integration/*.js",
+    "all-tests": "npm run unit-test && npm run api-test",
     "test": ". ./scripts/newtab.sh && PORT=3001 npm run dev"
   },
   "author": "Jason Bryant",
