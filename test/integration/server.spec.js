@@ -1,20 +1,21 @@
-var assert = require("assert");
-let chai = require("chai");
-let chaiHttp = require("chai-http");
-// let server = require("../../server/server");
-let should = chai.should();
-chai.use(chaiHttp);
+const assert = require("assert")
+let chai = require("chai")
+let chaiHttp = require("chai-http")
+let should = chai.should()
+const { expect } = require('chai')
 
-it ("Should Fecth all the Home", (done)=>{
-    // const tempServer = await getServer()
+chai.use(chaiHttp)
 
-    chai.request('http://localhost:3000')
-        .get("/")
-        .end((err, result)=>{
-            // result.should.have.status(200);
-            console.log ("Got",result, " docs")
-            //console.log ("Result Body:", result.body);
-            
-            done()
+describe('Testing Server-side APIs', function() {
+    it ("Happy-Path for Copy Endpoint (AWS S3)", (done)=>{
+        chai.request('http://localhost:3001')
+            .get("/copy")
+            .end((err, result)=>{
+                const text = JSON.parse(result.text)
+                
+                expect(text).to.be.an('object')
+                expect(text).to.include({ 'firstname': 'Jason' })
+                done()
+        })
     })
 })
