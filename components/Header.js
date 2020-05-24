@@ -68,7 +68,6 @@ export default class Header extends PureComponent {
                                     <p>{copy.phone.us} (us)</p>
                                     <p>{copy.phone.pt} (pt)</p>
                                     <p>{copy.email}</p>
-                                    <p>{copy.linkedin}</p>
                                 </section>
                             </Right>
                         </Info>

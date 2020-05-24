@@ -10,19 +10,29 @@ export default class Work extends PureComponent {
         this.state = {}
     }
 
+    printDescription(text) {
+        return(
+            <div className="description"
+                dangerouslySetInnerHTML={{
+                    __html: text,
+                }}
+            />
+        )
+    }
+
     printJobs() {
         return this.props.content.work.map((job, index) => {
             const hasLink = job.comapnyLink != undefined
             return( 
                 <article key={index}>
-                   <p>{job.startdate} to {job.enddate}</p>
+                   <p className="dates">{job.startdate} to {job.enddate}</p>
                    {
                        hasLink ?
                        <h4><a href={job.comapnyLink} rel="nofollow" target="_blank">{job.company}</a></h4> :
                        <h4>{job.company}</h4>
                    }
                    <h3>{job.position}</h3>
-                   <p className="description">{job.description}</p>
+                   {this.printDescription(job.description)}
                </article>
            )
         })
@@ -62,22 +72,22 @@ const WorkSection = styled.section`
 	}
 	h4 {
 		margin: 0;
-	}
-	p {
-		margin-top: 0;
+    }
+    
+    .dates {
+        margin: 0;
+    }
 
-		&:not(.description) {
-			font-style: italic;
-			margin: 0;
-		}
-		&.description {
-			margin-bottom: 8vh;
-		}
-	}
+    .description {
+        margin-bottom: 10vh;
 
-	&:last {
-		p.description {
-			margin-bottom: 0;
-		}
-	}
+        ul {
+            li {
+                margin-bottom: 3vh;
+                &:last-child {
+                    margin-bottom: 5vh;
+                }
+            }
+        }
+    }	
 `

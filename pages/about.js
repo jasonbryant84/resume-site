@@ -23,7 +23,7 @@ export default class About extends PureComponent {
         }
 	}
 	
-	printAbout(paragraphs) {
+	printText(paragraphs) {
         if (!paragraphs) return
 
         return paragraphs.map((paragraph, index) => {
@@ -60,7 +60,7 @@ export default class About extends PureComponent {
 		return (
 			<Container>
 				<Head>
-					<title>About</title>
+					<title>About | {this.state.content.firstname} {this.state.content.lastname}</title>
 				</Head>
 
 				<Wrapper>
@@ -69,10 +69,13 @@ export default class About extends PureComponent {
 					</Link>
 					<Content>
 						<ImageBar name="nepal" top={'20%'} />
-						<h2>About Jason Bryant</h2>
-						{this.printAbout(this.state.content.cv)}
-						<p><Link href='/'><a>Resume</a></Link></p>
+						<h2>About</h2>
+						{this.printText(this.state.content.cv)}
+						<p><Link href='/'><a>Back to Resume</a></Link></p>
 						<ImageBar name="dome_interior" top={'center'}/>
+						<h2>General Background</h2>
+						{this.printText(this.state.content.general)}
+						<p><Link href='/'><a>Back to Resume</a></Link></p>
 					</Content>
 
 					<Footer role={this.state.content.role} />

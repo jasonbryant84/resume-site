@@ -10,7 +10,7 @@
     },
     "email": "jasonbryant@stanfordalumni.org",
     "linkedin": "jasonbryant1",
-    "about": "I'm passionate about making others' lives better and easier. Whether I'm creatively trying to remove pain points via code or a listening ear or volunteerin gas a meditation teacher my sense of satisfaction comes from helping others and always learning.",
+    "about": "I'm passionate about making others' lives better and easier. Whether I'm creatively trying to remove pain points via code or a listening ear or volunteering as a meditation teacher my sense of satisfaction comes from helping others and always learning.",
     "education": {
     	"school": {
 	    	"years": "2006 - 2008",
@@ -34,33 +34,33 @@
     		"company": "InVision App",
     		"comapnyLink": "https://www.invisionapp.com/",
     		"position": "Data Engineer",
-    		"description": "Promptly took over the management and maintenance of the data team's front-end analytics implementation. Implemented custom pipeline monitoring in Python via Jenkins job."
+			"description": "<p>Promptly took over the management and maintenance of the data team's front-end analytics implementation. Implemented custom pipeline monitoring in Python via Jenkins job.</p><ul><li>Co-own and operate a 50 TB AWS Redshift warehouse that ingests data from customer clickstream and mysql/Mongo backends via via Segment, Stitch, Alooma, ETLeap, and Matillion; performs daily analysis via dbt and python on Jenkins; and reports it via Mode and Tableau. An internal audience of ~300 execs, PMs, sales reps, etc uses this platform every day to understand the current state of the business, make decisions, and measure OKR progress.</li><li>Co-maintain reliability for the platform by building monitoring, regularly reviewing performance, and participating in oncall rotation to resolve and prevent incidents.</li><li>Co-own and operate a Node microservice that wraps Segment, so that product engineers can fire events easily and with high quality. It's consumed by all of InVision engineering across multiple environments/versions and handles ~70K requests per day. (You could provide a link to https://measure.invisionapp.com/measure/utilities.js , if you're prepared to be grilled about the code, and explain what's yours vs eg Sean's storage consent stuff.)</li></ul><p>Recent projects</p><ul><li>Got scientists to implement a renamespace of 100s of dbt product models for much better discoverability.</li><li>Halved the disk space of our Redshift cluster by altering table distribution keys. This enabled us to hit a key business goal of encrypting Redshift without performance hit or increased spend.</li><li>Drove team decision on how to ingest CSVs.</li></ul>"
     	},{
     		"startdate": "October 2015",
     		"enddate": "October 2018",
     		"company": "InVision App",
     		"comapnyLink": "https://www.invisionapp.com/",
     		"position": "Senior Web Developer",
-    		"description": "Automated a large portion of a Growth Engineer's worth of work while ensuring complete, and easy tracking customization via dashboard implementation for Analytics Team by building an in-house, mono-repo system to manage data and integrate 3rd party tools with Node, React, AWS S3, SQL, and Heroku. Eliminated the need for continual coding, testing, reviewing content for our webinars team by devising a headless CMS to increase velocity and accuracy. Overall, ensured content, uptime, and analytics for landing pages with 200,000 daily visitors by creating and collaborating across teams on several APIs and numerous landing pages including machine learning, design, and growth."
+			"description": "<p>Worked across multiple tech stacks and diverse teams to deliver marketing sites on-par with the company's image as a web prototyping tool that helps to create some of the world's greatest UX.</p><ul><li>Automated a large portion of a Growth Engineer's worth of work while ensuring complete, and easy tracking customization via dashboard implementation for Analytics Team by building an in-house, mono-repo system to manage data and integrate 3rd party tools with Node, React, AWS S3, SQL, and Heroku. Eliminated the need for continual coding, testing, reviewing content for our webinars team by devising a headless CMS to increase velocity and accuracy. Overall, ensured content, uptime, and analytics for landing pages with 200,000 daily visitors by creating and collaborating across teams on several APIs and numerous landing pages including machine learning, design, and growth.</li><li>Built out the company's customized webinar page while allowing pages to be created automatically by the content team via a Wordpress CMS and AWS S3 to host page copy in JSON.</li><li>Implemented initial tracking across all marketing pages.</li><li>Worked with the design team to create pixel perfect, mobile first websites while pushing the envolope on animation. This included the landing page for the launch of the company's flagship native app, Studio.</li><li>Built out Hubspot email templates <i>and</i> and integrated and customized their API within marketing sites.</li></ul>"
     	},{
     		"startdate": "October 2014",
     		"enddate": "October 2015",
     		"company": "Jingling Gate",
     		"position": "iOS Developer",
-    		"description": "Debugging existing and developng new Swift projects: social media and location-based apps."
+			"description": "<p>Debugging existing and developing new Swift projects: social media and location-based apps.</p><ul><li>Worked remotely, mostly with geolocation integration in Swift related projects.</li></ul>"
     	},{
     		"startdate": "Janurary 2012",
     		"enddate": "October 2015",
     		"company": "SanovaWorks",
     		"companyLink": "https://sanovaworks.com/",
     		"position": "Web Consultant",
-    		"description": "Remotely providing web design and front-end development services. Projects completed for Tylenol, Aveeno, and others. Designed iPhone/iPad app for Tylenol as well."
+			"description": "<p>Remotely providing web design and front-end development services as teh sole designer and developer. Projects completed for Tylenol, Aveeno, and others.</p><ul><li>Designed and created customized sites for medical continued learning courses.</li><li>Designed iPhone/iPad app for Tylenol as well.</li><li>Before leaving I was able to setup the content creation team with a Wordpress based CMS for their myriad sites and pages. As they had to scale back their operation.</li></ul>"
     	},{
     		"startdate": "July 2006",
     		"enddate": "December 2008",
     		"company": "Damian Marley",
     		"position": "Touring & Recording Guitarist",
-    		"description": "Toured and recorded for Bob Marley's youngest son. International touring. Grammy nominated album track recording. VH1, MTV, Jimmy Kimmel, BBC."
+			"description": "<p>Toured and recorded for Bob Marley's youngest son.</p><ul><li>Toured to promote the Grammy Award winning album Welcome to Jamrock.</li><li>Recorded on projects for Damian, Stephen, and Julian Marley respectively.</li><li>Appeared on VH1, MTV, Jimmy Kimmel, BBC, Austin City Limits, Glastonbury.</li><li>Toured the world for 3 years to Europe, the US, and the Caribbean.</li></ul>"
     	}
     ],
     "skills": {
@@ -72,25 +72,28 @@
 	"stack": [
 		[
 			{
-				"tool": "Amazon S3",
-				"description": "To host JSON file for all content within this site. No need to deploy new code changes for content."
+				"tool": "Amazon s3",
+				"description": "<p>To host JSON files for all content within this site both production and development (staging, beta, local).</p><ul><li>no need to deploy new code changes for content</li><li>can test a development version of content upates separately from production to ensure formatting, and spelling are correct</li><li>if JSON is incorrectly formatted in development then production will not have issue</li></ul>"
 			},{
-				"tool": "ReactJS",
-				"description": ""
+				"tool": "Reactjs",
+				"description": "<p>Javascript library leveraged to create flexible user interfaces.</p><ul><li>reusable, styled components</li><li>live updates for code changes on local machine means faster development</li></ul>"
 			},{
-				"tool": "ExpressJS",
-				"description": ""
+				"tool": "Node.js, ExpressJS, & NextJS",
+				"description": "<p>Server-side rendered web app serving site pages and APIs.</p><ul><li>client does not need to instantiate React to render</li><li>faster client-side experience</li></ul>"
+			},{
+				"tool": "Herokuapp",
+				"description": "<p>Beta, Staging, Production environments setup for an app pipeline to enable</p><ul><li>testing updates in <b>Beta</b> against development branches</li><li>merging to <b>Staging</b> to ensure in the process that updates will not break the production site</li><li><b>Production</b> environment for the public facing final product</li></ul>"
 			}
 		],[
 			{
-				"tool": "HerokuApp",
-				"description": "Beta, Staging, Production environments."
+				"tool": "Github",
+				"description": "<p>Version control integrated with Herokuapp for continuous integration and ease of use in implemented beta, staging, and production evironments. Leveraging Codeship for Continuous Integration.</p>"
 			},{
-				"tool": "Github w/ Codeship",
-				"description": "Version control integrated with Herokuapp for continuous deployment and ease of use in implemented beta, staging, and production evironments. Leveraging Codeship for Continuous Integration."
+				"tool": "Codeship",
+				"description": "<p>Continuous Integration platform integrated with Github deployments.</p><ul><li>Ensuring the app builds properly before merged code makes it to staging</li></ul>"
 			},{
-				"tool": "integration testing",
-				"description": ""
+				"tool": "Unit & Integration Testing",
+				"description": "<p>Both unit and integration testing implemented via Mocha and customized a shell script to ensure new code updates don't break the live site.</p><ul><li>Unit Testing<ul><li>Testing pages compile and render as expected without having to visit them directly</li></ul></li><li>Integration Testing<ul><li>Ensuring any APIs on the server deliver the expected response(s)</li></ul></li></ul>"
 			}
 		]
 	],
@@ -104,6 +107,11 @@
     	}
 	],
 	"cv": [
+		"I'm passionate about making others' lives better and easier: by shipping intuitive UIs,measuring their customer engagement,  building automated processes and tooling, and building useful data pipelines for scientists and the business. I'm looking for a role where I can focus more on incorporating my full stack, and big data experience while helping others and continuing to learn.",
+		"I work to identify high value problems and independently drive solutions for them. I'm continually striving to hear and understand the concerns of stakeholders and working to prioritize and integrate them within the larger vision of my team and organization as a whole.",
+		"My over 13 years of meditation experience have helped me to maintain a calm and patient outlook on work even in the midst of incidents. I try my best to humbly welcome feedback and put it into practice in order to be the best teammate I can be."
+	],
+	"general": [
 		"At Stanford University I found my way to the Center for <a href='https://ccrma.stanford.edu/' target='_blank' rel='nofollow'>Computer Research in Music and Acoustics (CCRMA)</a> through my love of music and budding interest in signal processing within the Electrical Engineering department.",
 		"My 4th year of undergratudate study ws temporarily put on hold to to tour the world as the lead guitarist for Damian Marly, son of Bob Marley. I learned a self-discipline I'd not known as I successfully completed my BSEE in Signal Processing while playing shows like Glastonbury to MTV Spring Break to <a href='https://www.youtube.com/watch?v=pmdMTMzOqpA' target='_blank' rel='nofollow'>Austin City Limits</a> and <a href='https://www.youtube.com/watch?v=y_eQJWu3tRY' target='_blank' rel='nofollow'>many others</a>.",
 		"With the end of my 3-year, grueling touring carrier and simultaenous completion of my degree I found respite in the practice of Buddhist meditation. Something I value and practice to this very day and even take part in as a volunteer meditation teacher for months at a time on a yearly basis.",
