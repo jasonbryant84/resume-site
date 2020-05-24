@@ -14,7 +14,7 @@ export default class Experience extends PureComponent {
         return this.props.content.other_experience.map((exp, index) => {
             return( 
                 <article key={index}>
-                   <h3>{exp.heading}!</h3>
+                   <h3>{exp.heading}</h3>
                    <p>{exp.sub_heading}</p>
                    <p>{exp.startdate} to {content.other_experience[0].enddate}</p>
                    <p>{exp.description}</p>
