@@ -87,7 +87,7 @@ export default class StackModal extends PureComponent {
             <Modal className={`modal ${open ? 'open' : ''}`}>
                 <ModalPadder>
                     <StackCTA cta="close" ctaClickHandler={this.clickHandler.bind(this)} />
-                    <h3>Site Tech Stack</h3>
+                    <h3>This Site's Tech Stack</h3>
                     <List>
                         <Column>{this.printStacks(this.props.content.stack[0])}</Column>
                         <Column>{this.printStacks(this.props.content.stack[1])}</Column>
