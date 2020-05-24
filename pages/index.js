@@ -79,7 +79,7 @@ export default class Index extends PureComponent {
 					<Grouping className="grouping">
 						<LeftColumn className="leftColumn">
 							<About content={this.state.content} />
-							<Education content={this.state.content} printArrayContent={this.printArrayContent.bind(this)} />
+							<Education className={"non-mobile"} content={this.state.content} printArrayContent={this.printArrayContent.bind(this)} />
 						</LeftColumn>
 
 						<Work content={this.state.content}/>
@@ -92,7 +92,7 @@ export default class Index extends PureComponent {
 							<Skills content={this.state.content} printArrayContent={this.printArrayContent.bind(this)} />
 						</LeftColumn>
 
-						<Experience  content={this.state.content} />
+						<Experience content={this.state.content} />
 					</Grouping>
 				</Content>
 				

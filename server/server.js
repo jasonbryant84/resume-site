@@ -26,6 +26,8 @@ const getAWSJSON = (path, file, res) => {
     envSpecificFolder = environment != 'PRODUCTION' || 'production' ? 'dev-review-staging' : 'production',
     key = `${path}/${envSpecificFolder}/${file}`
 
+  console.log(`Pulling from AWS bucket: ${bucket}/${key}`)
+
   s3
     .getObject({
       Bucket: bucket,

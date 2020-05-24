@@ -17,10 +17,16 @@ export default class About extends PureComponent {
                 <h2>About <Link href='/about'><a>more</a></Link></h2>
                 <p>{this.props.content.about}</p>
                 <MobileInfo>
-                    <p>{this.props.content.phone.us} (us)<br/>
-                    {this.props.content.phone.pt} (pt)<br/>
-                    {this.props.content.email}<br/>
-                    {this.props.content.linkedin}</p>
+                    <p>
+                        {this.props.content.phone.us} (us)<br/>
+                        {this.props.content.phone.pt} (pt)<br/>
+                        <span
+                            dangerouslySetInnerHTML={{
+                                __html: '<br/>jasonbryant<br/>@stanfordalumni.org',
+                            }}
+                        />
+                        {/*this.props.content.email*/}
+                    </p>
                 </MobileInfo>
             </AboutSection>
         )

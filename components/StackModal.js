@@ -24,8 +24,26 @@ export default class StackModal extends PureComponent {
             openedOnce: true
         })
 
-        gsap.to(".li", {
-            duration: .5, 
+        gsap.to(".tool", {
+            duration: .15, 
+            x: '0',
+            opacity: 1.0,
+            stagger: {
+                each: 0.1
+            }
+        });
+
+        gsap.to(".description", {
+            duration: .25, 
+            x: '0',
+            opacity: 1.0,
+            stagger: {
+                each: 0.1
+            }
+        });
+
+        gsap.to(".description ul", {
+            duration: .35, 
             x: '0',
             opacity: 1.0,
             stagger: {
@@ -34,22 +52,32 @@ export default class StackModal extends PureComponent {
         });
     }
 
-    componentDidMount() {}
+    printDescription(text) {
+        return(
+            <div className="description"
+                dangerouslySetInnerHTML={{
+                    __html: text,
+                }}
+            />
+        )
+    }
 
     printStacks(stack) {
         if (!stack) return
 
         return stack.map((tool, index) => {
             return( 
-                <li key={index} class="li">
+                <div key={index} class="tool">
                     <h5>{tool["tool"]}</h5>
-                    <p>{tool["description"]}</p>
-                </li>
+                    {this.printDescription(tool["description"])}
+                </div>
             )
         })
     }
 
     render() {
+        if (!this.props.content) return
+
         let open = this.props.show
 
         if (open && !this.state.openedOnce) 
@@ -61,8 +89,8 @@ export default class StackModal extends PureComponent {
                     <StackCTA cta="close" ctaClickHandler={this.clickHandler.bind(this)} />
                     <h3>Site Tech Stack</h3>
                     <List>
-                        <ul>{this.printStacks(this.props.content.stack[0])}</ul>
-                        <ul>{this.printStacks(this.props.content.stack[1])}</ul>
+                        <Column>{this.printStacks(this.props.content.stack[0])}</Column>
+                        <Column>{this.printStacks(this.props.content.stack[1])}</Column>
                     </List>
                 </ModalPadder>
             </Modal>
@@ -102,16 +130,12 @@ const Modal = styled.div`
         transform: translateX(0vw);
     }
 
-    div {
-        overflow-y: scroll;
-    }
-
     span {
         color: ${colors.pink};
     }
 
     h3 {
-        margin-top: 0;
+        margin: 0 0 6vh 0;
         font-size: 2em;
         line-height: 1;
     }
@@ -124,23 +148,13 @@ const Modal = styled.div`
         font-size: 1.5em;
         margin: 0;
     }
-
-    ul{
-        list-style: none;
-        padding-left: 0;
-
-        li {
-            opacity: 0;
-            transform: translate(30vw, 0px);
-            margin-bottom: 7vh;
-        }
-    }
 `
 
 const ModalPadder = styled.div`
     padding: 4vh 0;
 
     width: 75vw;
+    height: 100vh;
     max-width: 1000px;
     margin: 0 auto;
     
@@ -153,17 +167,41 @@ const List = styled.div`
     @media (min-width: ${breakpoints.tabletLandscape}px) {
         flex-direction: row;
     }
+`
 
-    ul {
-        margin: 0;
-        flex-grow: 1;
-        flex-basis: 0;
+const Column = styled.div`
+    margin: 0;
+    flex-grow: 1;
+    flex-basis: 0;
 
-        &:last-child {
-            padding-left: 0;
+    &:last-child {
+        padding-left: 0;
 
-            @media (min-width: ${breakpoints.tabletLandscape}px) {
-                padding-left: 3vw;
+        @media (min-width: ${breakpoints.tabletLandscape}px) {
+            padding-left: 3vw;
+        }
+    }
+
+    .tool {
+        margin: 0 0 7vh 0;
+        opacity: 0;
+        transform: translate(30vw, 0px);
+
+        .description{
+            opacity: 0;
+            transform: translate(60vw, 0px);
+
+            ul{
+                list-style: initial;
+                padding-left: 20px;
+
+                li {
+                    margin-bottom: 2vh;
+
+                    ul {
+                        margin: 2vh 0 3vh;
+                    }
+                }
             }
         }
     }
