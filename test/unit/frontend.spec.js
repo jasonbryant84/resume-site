@@ -1,4 +1,4 @@
-const assert = require("assert")
+aconst assert = require("assert")
 let chai = require("chai")
 let chaiHttp = require("chai-http")
 let should = chai.should()
@@ -19,6 +19,15 @@ describe('Pages are alive and well', function() {
     it ("About Page is healthy", (done)=>{
         chai.request('http://localhost:3001')
             .get("/about")
+            .end((err, result)=>{
+                expect(result).to.have.status(200)
+                done()
+        })
+    })
+
+    it ("Rebuild Page is healthy", (done)=>{
+        chai.request('http://localhost:3001')
+            .get("/rebuild")
             .end((err, result)=>{
                 expect(result).to.have.status(200)
                 done()
