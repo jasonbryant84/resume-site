@@ -58,14 +58,6 @@ export default class About extends PureComponent {
 
 		return (
 			<Container>
-				<head>
-					<title>About | Jason Bryant</title>
-
-					<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Lora:400,700|Raleway:300,400,500|Mrs+Saint+Delafield|Oswald:400,500,600,700|Montserrat:400,500,600,700,800,900" rel="stylesheet"
-					key="fonts" />
-					<meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-					<meta name="google" value="notranslate" key="google" />
-				</head>
 				<Wrapper>
 					<Link href="/">
 						<a id="home"><HomeSVG /></a>
