@@ -14,7 +14,7 @@ import Skills from '../components/Skills'
 import Experience from '../components/Experience'
 import Footer from '../components/Footer'
 
-import injectMeta from './helpers/inject'
+// import injectMeta from './helpers/inject'
 
 import StackCTA from '../components/StackCTA'
 import StackModal from '../components/StackModal'
@@ -22,31 +22,40 @@ import Loader from '../components/Loader'
 
 
 export default class Index extends PureComponent {
-  constructor(props) {
-	super(props)
+	constructor(props) {
+		super(props)
 
-	this.state = {
-		modalOpen: false,
-		content: null
+		this.state = {
+			modalOpen: false,
+			content: null
+		}
 	}
-  }
 
-  stackCTAClicked(){
-	const body = document.getElementsByTagName("body")[0]
-	
-	this.setState({
-		modalOpen: !this.state.modalOpen
-	}, ()=> {
-		this.state.modalOpen ? body.classList.add('modal-open') : body.classList.remove('modal-open')
-	})
-  }
+	stackCTAClicked(){
+		const body = document.getElementsByTagName("body")[0]
+		
+		this.setState({
+			modalOpen: !this.state.modalOpen
+		}, ()=> {
+			this.state.modalOpen ? body.classList.add('modal-open') : body.classList.remove('modal-open')
+		})
+	}
 
-  printArrayContent(array) {
-  	return array.map((element, index) => {
-  		const comma = (index != array.length - 1) ? ', ' : ''
-  		return element.concat(comma)
-  	})
-  }
+	printArrayContent(array) {
+		return array.map((element, index) => {
+			const comma = (index != array.length - 1) ? ', ' : ''
+			return element.concat(comma)
+		})
+	}
+
+	injectMeta() {
+		const meta = document.createElement('meta')
+		
+		meta.name = 'viewport'
+		meta.content = 'initial-scale=1.0, width=device-width'
+		document.getElementsByTagName('head')[0].appendChild(meta);
+		// <meta name="viewport" content="width=device-width"></meta>
+	}
 
   	componentDidMount() {
 		injectMeta()
