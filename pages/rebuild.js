@@ -1,5 +1,7 @@
 import { PureComponent } from 'react'
 import PropTypes from 'prop-types'
+import Head from 'next/head'
+
 
 import React from 'react'
 import styled from 'styled-components'
@@ -7,6 +9,7 @@ import content from '../content/text' // remove me
 import {colors, breakpoints, GlobalStyle} from '../assets/css/style.js'
 import Link from 'next/link'
 
+import injectMeta from './helpers/inject'
 import HomeSVG from '../assets/svgs/Home.js'
 
 import ImageBar from '../components/ImageBar'
@@ -37,6 +40,8 @@ export default class Rebuild extends PureComponent {
     }
 
     componentDidMount() {
+        injectMeta()
+
 		fetch('/copy')
 			.then(response => response.json())
 			.then(parsedJSON => {
@@ -58,6 +63,9 @@ export default class Rebuild extends PureComponent {
 
 		return (
             <Container>
+                <Head>
+                    <title>Helping Others Rebuild in the Algarve | {this.state.content.firstname} {this.state.content.lastname}</title>
+                </Head> 
 				<Wrapper>
 					<Content>
                         <ImageBar name="tomatoes" top={'43%'} />

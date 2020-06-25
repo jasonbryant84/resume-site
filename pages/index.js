@@ -1,6 +1,8 @@
 import React from 'react'
 import { PureComponent } from 'react'
 import styled from 'styled-components'
+import Head from 'next/head'
+
 import content from '../content/text' // remove me
 import {breakpoints, colors, GlobalStyle} from '../assets/css/style.js'
 
@@ -12,9 +14,12 @@ import Skills from '../components/Skills'
 import Experience from '../components/Experience'
 import Footer from '../components/Footer'
 
+import injectMeta from './helpers/inject'
+
 import StackCTA from '../components/StackCTA'
 import StackModal from '../components/StackModal'
 import Loader from '../components/Loader'
+
 
 export default class Index extends PureComponent {
   constructor(props) {
@@ -43,7 +48,9 @@ export default class Index extends PureComponent {
   	})
   }
 
-  componentDidMount() {
+  	componentDidMount() {
+		injectMeta()
+
 		fetch('/copy')
 			.then(response => response.json())
 			.then(parsedJSON => {
@@ -56,7 +63,7 @@ export default class Index extends PureComponent {
 				}
 			})
 			.catch(error => console.log('parsing failed', error))
-  }
+  	}
 
   render() {
 	if (!this.state.content) {
@@ -64,7 +71,10 @@ export default class Index extends PureComponent {
 	}
 
     return (
-		<Container>			
+		<Container>	
+			<Head>
+				<title>{this.state.content.firstname} {this.state.content.lastname}  | { this.state.content.role} </title>
+			</Head> 		
 			<Wrapper>
 				<StackCTA cta="see stack" color={"white"} ctaClickHandler={this.stackCTAClicked.bind(this)} />
 				<StackModal show={this.state.modalOpen} content={this.state.content} closeClickHandler={this.stackCTAClicked.bind(this)}/>
