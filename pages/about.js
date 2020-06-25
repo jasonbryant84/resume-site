@@ -39,11 +39,13 @@ export default class About extends PureComponent {
 	}
 
     componentDidMount() {
-        // inject meta
-        const meta = document.createElement('meta')
-        meta.name = 'viewport'
-        meta.content = 'initial-scale=1.0, width=device-width'
-        document.getElementsByTagName('head')[0].appendChild(meta)
+		// inject meta
+		setTimeout(()=>{
+			const meta = document.createElement('meta')
+			meta.name = 'viewport'
+			meta.content = 'initial-scale=1.0, width=device-width'
+			document.getElementsByTagName('head')[0].appendChild(meta)
+		}, 1000)
 
 		fetch('/copy')
 			.then(response => response.json())
