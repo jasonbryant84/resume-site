@@ -9,7 +9,6 @@ import content from '../content/text' // remove me
 import {colors, breakpoints, GlobalStyle} from '../assets/css/style.js'
 import Link from 'next/link'
 
-// import injectMeta from './helpers/inject'
 import HomeSVG from '../assets/svgs/Home.js'
 
 import ImageBar from '../components/ImageBar'
@@ -38,18 +37,13 @@ export default class Rebuild extends PureComponent {
             )
         })
     }
-
-    injectMeta() {
-		const meta = document.createElement('meta')
-		
-		meta.name = 'viewport'
-		meta.content = 'initial-scale=1.0, width=device-width'
-		document.getElementsByTagName('head')[0].appendChild(meta);
-		// <meta name="viewport" content="width=device-width"></meta>
-    }
     
     componentDidMount() {
-        injectMeta()
+        // inject meta
+        const meta = document.createElement('meta')
+        meta.name = 'viewport'
+        meta.content = 'initial-scale=1.0, width=device-width'
+        document.getElementsByTagName('head')[0].appendChild(meta)
 
 		fetch('/copy')
 			.then(response => response.json())
