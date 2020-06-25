@@ -78,6 +78,19 @@ export default class Rebuild extends PureComponent {
                                 <iframe className="video" width="100%" height="50%" src="https://www.youtube.com/embed/GdsiOoCT2yo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </Entry>
+
+                        <Entry>
+                            <h3>Searching for Solar Power</h3>
+                            <p className="date">Wednesday, June 24</p>
+
+                            <p>Went to <a href="http://ffsolar.com/" target="_blank" rel="nofollow">FF Solar</a> in search of donations or discounted equipment with Thomas. They gave us the wholesale price so we took them up on the offer to at least get going with a communal wifi setup that will help get volunteers on the land as we need it for communication and movie nights! Although this was initially to be funded by the GoFundMe campain a few others and I have decided to it's better to use our own resources so more donations go to volunteer efforts directly.</p>
+
+                            <div className="iframeContainer">
+                                <iframe className="video" width="100%" height="50%" src="https://www.youtube.com/embed/GdsiOoCT2yo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+
+                            <ImageBar name="ffsolar" top="0"/>
+                        </Entry>
 					</Content>
 				</Wrapper>
 
@@ -179,6 +192,7 @@ const Content = styled.section`
         position: relative;
         height: 0;
         padding-bottom: 56.25%;
+        margin-bottom: 5vh;
     }
     .video {
         position: absolute;
