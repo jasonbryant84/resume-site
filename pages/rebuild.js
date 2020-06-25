@@ -1,6 +1,5 @@
 import { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import Head from 'next/head'
 
 import React from 'react'
 import styled from 'styled-components'
@@ -59,9 +58,14 @@ export default class Rebuild extends PureComponent {
 
 		return (
             <Container>
-                <Head>
+                <head>
                     <title>Helping Others Rebuild in the Algarve | Jason Bryant</title>
-                </Head>
+
+                    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Lora:400,700|Raleway:300,400,500|Mrs+Saint+Delafield|Oswald:400,500,600,700|Montserrat:400,500,600,700,800,900" rel="stylesheet"
+                    key="fonts" />
+                    <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+                    <meta name="google" value="notranslate" key="google" />
+                </head>
 				<Wrapper>
 					<Content>
                         <ImageBar name="tomatoes" top={'43%'} />
