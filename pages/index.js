@@ -1,7 +1,6 @@
 import React from 'react'
 import { PureComponent } from 'react'
 import styled from 'styled-components'
-import Head from 'next/head'
 import content from '../content/text' // remove me
 import {breakpoints, colors, GlobalStyle} from '../assets/css/style.js'
 
@@ -66,9 +65,14 @@ export default class Index extends PureComponent {
 
     return (
 		<Container>
-			<Head>
+			<head>
 				<title>Jason Bryant | Senior Web Developer, Data Engineer</title>
-			</Head>
+
+				<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Lora:400,700|Raleway:300,400,500|Mrs+Saint+Delafield|Oswald:400,500,600,700|Montserrat:400,500,600,700,800,900" rel="stylesheet"
+				key="fonts" />
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+				<meta name="google" value="notranslate" key="google" />
+			</head>
 			
 			<Wrapper>
 				<StackCTA cta="see stack" color={"white"} ctaClickHandler={this.stackCTAClicked.bind(this)} />
