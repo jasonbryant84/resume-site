@@ -60,9 +60,8 @@ export default class About extends PureComponent {
 		return (
 			<Container>
 				<Head>
-					<title>About | {this.state.content.firstname} {this.state.content.lastname}</title>
+					<title>About | Jason Bryant</title>
 				</Head>
-
 				<Wrapper>
 					<Link href="/">
 						<a id="home"><HomeSVG /></a>

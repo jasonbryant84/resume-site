@@ -65,11 +65,11 @@ export default class Index extends PureComponent {
 	}
 
     return (
-    	<Container>
-    		<Head>
-	          <title>{this.state.content.firstname} {this.state.content.lastname} | {this.state.content.role}</title>
-	        </Head>
-
+		<Container>
+			<Head>
+				<title>Jason Bryant | Senior Web Developer, Data Engineer</title>
+			</Head>
+			
 			<Wrapper>
 				<StackCTA cta="see stack" color={"white"} ctaClickHandler={this.stackCTAClicked.bind(this)} />
 				<StackModal show={this.state.modalOpen} content={this.state.content} closeClickHandler={this.stackCTAClicked.bind(this)}/>

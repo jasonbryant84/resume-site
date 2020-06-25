@@ -58,11 +58,10 @@ export default class Rebuild extends PureComponent {
 		}
 
 		return (
-			<Container>
-				<Head>
-					<title> Helping Others Rebuild in the Algarve | {this.state.content.firstname} {this.state.content.lastname}</title>
-				</Head>
-
+            <Container>
+                <Head>
+                    <title>Helping Others Rebuild in the Algarve | Jason Bryant</title>
+                </Head>
 				<Wrapper>
 					<Content>
                         <ImageBar name="tomatoes" top={'43%'} />
