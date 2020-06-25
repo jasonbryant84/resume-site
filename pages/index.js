@@ -14,8 +14,6 @@ import Skills from '../components/Skills'
 import Experience from '../components/Experience'
 import Footer from '../components/Footer'
 
-// import injectMeta from './helpers/inject'
-
 import StackCTA from '../components/StackCTA'
 import StackModal from '../components/StackModal'
 import Loader from '../components/Loader'
@@ -48,17 +46,12 @@ export default class Index extends PureComponent {
 		})
 	}
 
-	injectMeta() {
-		const meta = document.createElement('meta')
-		
-		meta.name = 'viewport'
-		meta.content = 'initial-scale=1.0, width=device-width'
-		document.getElementsByTagName('head')[0].appendChild(meta);
-		// <meta name="viewport" content="width=device-width"></meta>
-	}
-
   	componentDidMount() {
-		injectMeta()
+        // inject meta
+        const meta = document.createElement('meta')
+        meta.name = 'viewport'
+        meta.content = 'initial-scale=1.0, width=device-width'
+        document.getElementsByTagName('head')[0].appendChild(meta)
 
 		fetch('/copy')
 			.then(response => response.json())
