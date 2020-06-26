@@ -94,10 +94,21 @@ export default class Rebuild extends PureComponent {
                             <p>Went to <a href="http://ffsolar.com/" target="_blank" rel="nofollow">FF Solar</a> in search of donations or discounted equipment with Thomas. They gave us the wholesale price so we took them up on the offer to at least get going with a communal wifi setup that will help get volunteers on the land as we need it for communication and movie nights! Although this was initially to be funded by the GoFundMe campain a few others and I have decided to it's better to use our own resources so more donations go to volunteer efforts directly.</p>
 
                             <div className="iframeContainer">
-                                <iframe className="video" width="100%" height="50%" src="https://www.youtube.com/embed/GdsiOoCT2yo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe className="video" width="100%" height="50%" src="https://youtube.com/embed/u7ULXJWB4pY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
 
                             <ImageBar name="ffsolar" top="0"/>
+                        </Entry>
+
+                        <Entry>
+                            <h3>Water's Working!</h3>
+                            <p className="date">Friday, June 26</p>
+
+                            <p>The hot water heater is working again. A melted cable has been replaced to power the water pump for teh shower and kitchen, and water from the reserve tanks has filled the main container after a cleaning out. Pressure is not constant for the pump so another trip to the hardware store is in order. At this rate next week's volunteer(s) should be able to shower and we should be able to cook and clean as needed. Fingers crossed WiFi is sorted before the first kind soul arrives.</p>
+
+                            <div className="iframeContainer">
+                                <iframe className="video" width="100%" height="50%" src="https://youtube.com/embed/aTlC0g0kKzk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
                         </Entry>
 					</Content>
 				</Wrapper>
