@@ -112,7 +112,7 @@ export default class Rebuild extends PureComponent {
                         </Entry>
 
                         <Entry>
-                            <h3>Second Shower Constructed for Volunteer</h3>
+                            <h3>Second Shower Constructed for Volunteers</h3>
                             <p className="date">Sunday, June 28</p>
 
                             <p>With volunteers cmoing in just 5 days a second outdoor shower has been built. A back flow valve has also been put in place to help the pump maintain pressure and the 7,000 liter capacity water storage units have been covered to protect them from UV radiation which casuses algae to form. Still waiting on teh wifi component to arrive.</p>
