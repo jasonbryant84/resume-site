@@ -74,20 +74,36 @@ export default class Rebuild extends PureComponent {
 				<Wrapper>
 					<Content>
                         <ImageBar name="tomatoes" top={'43%'} />
-                        <h2>Helping Others Rebuild in the Algarve</h2>
-                        <Entry>
-                            <h3>Returning Home</h3>
-                            <p className="date">Tuesday, June 23</p>
+                        <Intro>
+                            <h2>Helping Others Rebuild in the Algarve</h2>
+                            <p>For those that would like to follow along without the need for social media this page will contain shared videos and photos that can be found on Instragram and Facebook. Since it's not any of those platforms additional photos and vidoes will be posted here as well with more in-depth information when time allwos.</p>
+                            <p>If you'd like to help out you can make a donation via <a href="https://www.gofundme.com/f/help-others-rebuild-in-the-algarve" target="_blank">GoFundMe</a> or come and get dirty <a href="https://www.workaway.info/en/host/164975693893" target="_blank">by volunteering</a>.</p>
+                        </Intro>
 
-                            <p>First day back on the land after the wildfires tore through western Algarve. Tomorrow morning Thomas and I will be going on a hunt for free or discounted solar equipment to help setup a new WiFi tower for the community. We spread word of the fire via Whatsapp and Facebook chats so we'll be needing this in place for safety and to give future volunteers a fun way to unwind after all the dirt and sweat.</p>
-                            <p>Make a donation via <a href="https://www.gofundme.com/f/help-others-rebuild-in-the-algarve" target="_blank">GoFundMe</a><br/>Or get dirty <a href="https://www.workaway.info/en/host/164975693893" target="_blank">Volunteer</a></p>
+                        <Entry data-entry="4">
+                            <h3>Second Shower Constructed for Volunteers</h3>
+                            <p className="date">Sunday, June 28</p>
+
+                            <p>With volunteers cmoing in just 5 days a second outdoor shower has been built. A back flow valve has also been put in place to help the pump maintain pressure and the 7,000 liter capacity water storage units have been covered to protect them from UV radiation which casuses algae to form. Still waiting on teh wifi component to arrive.</p>
+                            <p>With two hot water showers and Wifi the place will be more than ready to accept the first kind souls to come help us get under way. As of today the donations are over €4,000! Thank you so much to all those who are helping from a distance and soon-to-be in person.</p>
 
                             <div className="iframeContainer">
-                                <iframe className="video" width="100%" height="50%" src="https://www.youtube.com/embed/GdsiOoCT2yo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe className="video" width="100%" height="50%" src="https://youtube.com/embed/EqLGWvnHkaA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </Entry>
 
-                        <Entry>
+                        <Entry data-entry="3">
+                            <h3>Water's Working</h3>
+                            <p className="date">Friday, June 26</p>
+
+                            <p>The hot water heater is working again. A melted cable has been replaced to power the water pump for teh shower and kitchen, and water from the reserve tanks has filled the main container after a cleaning out. Pressure is not constant for the pump so another trip to the hardware store is in order. At this rate next week's volunteer(s) should be able to shower and we should be able to cook and clean as needed. Fingers crossed WiFi is sorted before the first kind soul arrives.</p>
+
+                            <div className="iframeContainer">
+                                <iframe className="video" width="100%" height="50%" src="https://youtube.com/embed/aTlC0g0kKzk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </Entry>
+
+                        <Entry data-entry="2">
                             <h3>Searching for Solar Power</h3>
                             <p className="date">Wednesday, June 24</p>
 
@@ -100,14 +116,15 @@ export default class Rebuild extends PureComponent {
                             <ImageBar name="ffsolar" top="0"/>
                         </Entry>
 
-                        <Entry>
-                            <h3>Water's Working!</h3>
-                            <p className="date">Friday, June 26</p>
+                        <Entry data-entry="1">
+                            <h3>Returning Home</h3>
+                            <p className="date">Tuesday, June 23</p>
 
-                            <p>The hot water heater is working again. A melted cable has been replaced to power the water pump for teh shower and kitchen, and water from the reserve tanks has filled the main container after a cleaning out. Pressure is not constant for the pump so another trip to the hardware store is in order. At this rate next week's volunteer(s) should be able to shower and we should be able to cook and clean as needed. Fingers crossed WiFi is sorted before the first kind soul arrives.</p>
+                            <p>First day back on the land after the wildfires tore through western Algarve. Tomorrow morning Thomas and I will be going on a hunt for free or discounted solar equipment to help setup a new WiFi tower for the community. We spread word of the fire via Whatsapp and Facebook chats so we'll be needing this in place for safety and to give future volunteers a fun way to unwind after all the dirt and sweat.</p>
+                            <p>Make a donation via <a href="https://www.gofundme.com/f/help-others-rebuild-in-the-algarve" target="_blank">GoFundMe</a><br/>Or get dirty <a href="https://www.workaway.info/en/host/164975693893" target="_blank">Volunteer</a></p>
 
                             <div className="iframeContainer">
-                                <iframe className="video" width="100%" height="50%" src="https://youtube.com/embed/aTlC0g0kKzk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe className="video" width="100%" height="50%" src="https://www.youtube.com/embed/GdsiOoCT2yo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </Entry>
 					</Content>
@@ -219,6 +236,13 @@ const Content = styled.section`
         left: 0;
         width: 100%;
         height: 100%;
+    }
+`
+const Intro = styled.section`
+    margin-bottom: 15vh;
+
+    h2 {
+        margin-bottom: 0;
     }
 `
 const Entry = styled.div`
