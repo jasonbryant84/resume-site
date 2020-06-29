@@ -101,13 +101,25 @@ export default class Rebuild extends PureComponent {
                         </Entry>
 
                         <Entry>
-                            <h3>Water's Working!</h3>
+                            <h3>Water's Working</h3>
                             <p className="date">Friday, June 26</p>
 
                             <p>The hot water heater is working again. A melted cable has been replaced to power the water pump for teh shower and kitchen, and water from the reserve tanks has filled the main container after a cleaning out. Pressure is not constant for the pump so another trip to the hardware store is in order. At this rate next week's volunteer(s) should be able to shower and we should be able to cook and clean as needed. Fingers crossed WiFi is sorted before the first kind soul arrives.</p>
 
                             <div className="iframeContainer">
                                 <iframe className="video" width="100%" height="50%" src="https://youtube.com/embed/aTlC0g0kKzk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </Entry>
+
+                        <Entry>
+                            <h3>Second Shower Constructed for Volunteer</h3>
+                            <p className="date">Sunday, June 28</p>
+
+                            <p>With volunteers cmoing in just 5 days a second outdoor shower has been built. A back flow valve has also been put in place to help the pump maintain pressure and the 7,000 liter capacity water storage units have been covered to protect them from UV radiation which casuses algae to form. Still waiting on teh wifi component to arrive.</p>
+                            <p>With two hot water showers and Wifi the place will be more than ready to accept the first kind souls to come help us get under way. As of today the donations are over €4,000! Thank you so much to all those who are helping from a distance and soon-to-be in person.</p>
+
+                            <div className="iframeContainer">
+                                <iframe className="video" width="100%" height="50%" src="https://youtu.be/embed/EqLGWvnHkaA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </Entry>
 					</Content>
