@@ -18,6 +18,8 @@ import StackCTA from '../components/StackCTA'
 import StackModal from '../components/StackModal'
 import Loader from '../components/Loader'
 
+import ReactGA from 'react-ga'
+ReactGA.initialize('UA-171187914-1')
 
 export default class Index extends PureComponent {
 	constructor(props) {
@@ -47,6 +49,8 @@ export default class Index extends PureComponent {
 	}
 
   	componentDidMount() {
+		ReactGA.pageview(window.location.pathname + window.location.search);
+
         // inject meta
 		setTimeout(()=>{
 			const meta = document.createElement('meta')

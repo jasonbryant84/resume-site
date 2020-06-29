@@ -3,13 +3,15 @@ let tempServer
 
 const express = require('express'),
   next = require('next'),
+  url  = require('url'),
   https = require('https'),
   AWS = require('aws-sdk'),
   dev = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'test',
   app = next({ dev }),
   handle = app.getRequestHandler(),
   port = process.env.PORT || 3000,
-  environment = process.env.ENVIRONMENT
+  environment = process.env.ENVIRONMENT,
+  segmentHelper = require('./utils/segment.helper')
 
 AWS.config.update({
   region: 'us-east-1',
@@ -62,6 +64,13 @@ app
     // Serve All other Pages
     server.get('*', (req, res) => {
       res.environment = environment
+
+      const url_parts = url.parse(req.url)
+        url_parts.ipaddress = req.connection.remoteAddress,
+        url_parts.referer = req.headers.referer
+
+      segmentHelper.pageCall(url_parts)
+
       return handle(req, res)
     })
 
