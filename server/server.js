@@ -67,7 +67,8 @@ app
 
       const url_parts = url.parse(req.url)
         url_parts.ipaddress = req.connection.remoteAddress,
-        url_parts.referer = req.headers.referer
+        url_parts.referer = req.headers.referer,
+        url_parts.user_agent = req.headers['user-agent']
 
       segmentHelper.pageCall(url_parts)
 

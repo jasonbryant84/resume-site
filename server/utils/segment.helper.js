@@ -27,7 +27,11 @@ module.exports = {
                 eventAction: 'Page View',
                 eventCategory: info.category,
                 eventLabel: info.title,
-            }
+            },
+            context: {
+                ip: url_parts.ipaddress,
+                userAgent: url_parts.user_agent
+              },
         })
     }
 }
