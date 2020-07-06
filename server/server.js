@@ -66,7 +66,7 @@ app
       res.environment = environment
 
       const url_parts = url.parse(req.url)
-        url_parts.ipaddress = req.connection.remoteAddress,
+        url_parts.ipaddress = req.headers['x-forwarded-for'] || req.connection.remoteAddress,
         url_parts.referer = req.headers.referer,
         url_parts.user_agent = req.headers['user-agent']
 
