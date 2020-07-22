@@ -3,7 +3,8 @@ const Analytics = require('analytics-node'),
     analytics = new Analytics(process.env.SEGMENT_KEY),
     environment = process.env.ENVIRONMENT,
     crypto = require('crypto'),
-    geo = require('./geo')
+    geo = require('./geo'),
+    mysqlHelper = require('./mysql.helper')
 
 module.exports = {
     pageCall: async (url_parts) => {       
@@ -52,6 +53,11 @@ const pageCall = (url_parts, geoResult) => {
             userAgent: url_parts.user_agent
             },
     })
+
+    const input = '"' + userId.concat('", "') + info.name.concat('", "') + geoResult.city.concat('", "') + geoResult.country.concat('", "') + environment.concat('", "') + url_parts.ipaddress.concat('", "') + url_parts.pathname.concat('", "') + url_parts.referer.concat('", ') + '"http://jasonreidbryant.com"'
+
+    mysqlHelper.addPageView('page_views', input)
+    
 },
 map = {
     '/': {
