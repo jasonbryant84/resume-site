@@ -6,11 +6,7 @@ const Analytics = require('analytics-node'),
     geo = require('./geo')
 
 module.exports = {
-    pageCall: async (url_parts) => {
-        const pathname = url_parts.pathname
-        if (pathname !== '/' && pathname !== '/about' && pathname !== '/rebuild')
-            return
-       
+    pageCall: async (url_parts) => {       
         const noGeoResult = {
             city: 'unknown',
             country: 'unknown'
